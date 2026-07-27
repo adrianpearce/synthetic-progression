@@ -1478,7 +1478,7 @@ It can capture and reason about transfinite paradoxes with no finit predecessors
 
 This means paradoxes can be treated as Markov and be reasoned about causally.
 
-Paradox examples (was it Bell's paradox or something) articulated by Samsan Abransky in databases
+Paradox examples : Hardy's Paradox and Bell's theorem - articulated by Samsan Abransky in databases
 
 This is what can be represented
 
@@ -1486,10 +1486,25 @@ Add to this realisation, it is realisation that faciliates the base change.
 
 + Scott continuitiy aspect
 
+Pressing need:
+
+Ineffible...need practical examples of this.
+
 =================================
 Proof - do realisations exist?
 =================================
 
 It should be consistent that realisation always exists and that it is also complete with respect to local frame.
 
+==================================
+Proof - that extra expressive area
+==================================
+
+Need to understand diagonalization proof, refer to relative completeness and use that in proof and understand what that gap (of expressivity is) is when realisation does not exist
+
+Is this a new complexity class, probably not because it does not realy exist in space and time...but it exists in the transfinite transitive closure...
+
+Need to work out what it is, it is simply this fixpoint, or the thing the proof determines above...a realisation.
+
+In other words realisations have greater expressivity.
 
