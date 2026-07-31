@@ -1097,7 +1097,20 @@ By framing it this way, you aren't just saying *"My framework works."* You are s
 Papers & Publications
 ==================================
 
+Devise fast track to papers for the three forms of proof: theoretical proof; implementation; and comparison / what you can do with it.
+
+Noting there are about 3-5 papers here.
+
+Synthetic relativity and relativistic prgression
+
+Probably do the paper in Quarto book for now using visible, other option is to clone or branch and let it flow in book form, perhaps better and easier  and faster. Then convert to Latex at last minute with help of Gemini, into arXiv.
+
+For Claude probably start with web project to get speed up with that for Jill's web site first.
+
+
 1. Relativistic theory progression paper:
+
+Potential title: Synthetic relativity and relativistic progression
 
 The synthetic relativity axioms and theorems proper 
 =>
@@ -1470,9 +1483,9 @@ Following this hierarchy, setting $k = 3$ provides the answer for double exponen
 
 In this class, the logic allows quantification over sets of sets of elements (third-order), and the $PFP$ operator drives the space complexity up to the doubly exponential bound of $O(2^{2^{n^c}})$.
 
-=================================
-Need examples that cannot be described causally for PDo closure, including paradox and investigate continuation etc.
-=================================
+================================================================================================
+Examples: Need examples that cannot be described causally for PDo closure, including paradox and investigate continuation etc.
+================================================================================================
 
 By representing limit in transfinite ordinatlity it can:
 
@@ -1574,8 +1587,9 @@ STRONG CAPABILITIES WITH WEAK SUPERVISION
 Collin Burns∗ Pavel Izmailov∗ Jan Hendrik Kirchner∗ Bowen Baker∗ Leo Gao
 
 ====================================================================
+Example:
 SUPER IMPORTANT - Self learning task proposing TASK
-SUPER SUPER IMPORTANT - Proving verifiable rewards through synthetic relativity and realisation
+SUPER SUPER IMPORTANT - Example: Proving verifiable rewards through synthetic relativity and realisation
 ====================================================================
 
 Absolute Zero:
@@ -1728,3 +1742,81 @@ You can write something like this:
 > *This principle provides the rigorous categorical justification for why our framework can navigate a continuous topological state space using only finite, constructive logical primitives, intrinsically guaranteeing Scott-continuity. The continuous transition is mathematically bounded by the initial ignorance ($\bot$) and the coinductive semantic limit ($\top$). It is only upon Semantic Realisation, via the application of the Lawvere-Tierney double-negation topology, that the Sierpiński space is collapsed into a Boolean sub-topos, triggering the Fibrational Change of Base ($S_f$) and returning the system to classical First-Order definability."*
 
 **Summary:** The Phoa Principle is the exact mathematical glue that proves why your continuous geometric theory can be safely executed by a discrete logical engine. It is highly relevant, and deploying it in your foundational paper will signal immense theoretical maturity to the reviewers!
+
+===================================================================
+Oxford Transit back to Melbourne dialogue: Papers, Examples, Proofs
+===================================================================
+
+24 July 2026:
+
+It's not a computationally nalmcomplexitynclass as it's not in space and time.
+
+It does nonetheless correspond to greater expressivity.
+
+But how is this possible within RE class?
+
+Surely it is in one of those undecidable class hierarchies - recall I wrote and investigated this a bit for one of those lower levels of analytical hierarchies....
+
+So perhaps not complete for that (analytical hierarchy) but a member of it...(Yes) While also probably a member of RE, but also decidable...but note that is different to complete for a space time class!
+
+Yes I think that is correct.
+
+---
+
+Relativistic completeness:
+
+Instead of class membership (e.g
+ 'in' NP) and every problem reduces to it (all problems in NP reduce to it), in (analytical, undecidable class) and all problems in that class are (relativistically) realisable.
+
+Works with degrees of incompleteness?
+
+What about doing this for specific case of strategic reasoning (think of the double EXPTIME classes Giuseppe is looking at) and come up with 'alternative proof' pathway (like the realisation must exist unless P=NP pathway.
+
+---
+
+Paper: Relativistic descriptive complexity
+
+This is not a new form of computational complexity this is a relativistic form of descriptive complexity 
+
+---
+
+Paper: Topological descriptive complexity, or (better) just 'topological complexity' (as it is ineffible) or even 'ineffible complexity'.
+
+This is very nice...one of the 'what you get' aspects of synthetic relativity with hard deliverables.
+
+It can only be described with realisations
+
+It can unify regression and progression resulting in ability to handle infinite context 
+
+... a theoretical foundation for infinite context 
+
+Proof approach:
+
+I might be able to us realisations as an alternative tool/widget to prove completeness (instead of membership + reduction) of various complexity classes (e.g NP, Double Exp space etc.) for a wide range of strategic reasoning problems.
+
+...there might be some condition about non-existence that can be proved by cryptographic encoding of thought ...
+
+----
+
+The bitter lesson:
+
+The bitter lesson claims that the anthropomorphic things don’t matter, simpler maths and probability is sufficient.
+
+The sweeter lesson indicates some anthropomorphic things do matter, a lot.
+
+Descriptive complexity describes e.g. PSPACE (planning) and Double EXPSPACE (strategy synthesis).
+
+Topological (synthetic relativistic) complexity has greater expressivity
+
+It turns out those classes are realisations of one part of a transitive synthetic relativistic fixpoint.
+
+--------------
+Examples:
+--------------
+
+Superalignment
+
+Example: Proving verifiable rewards through synthetic relativity and realisation (better than weak-to-strong generalisation)
+
+Knowledge distillation
+
