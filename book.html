@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer – Synthetic Relativity</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d3b1e9ac2bd06a5af06da13247e9045f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="book.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./book.html"><span class="chapter-title">Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Synthetic Relativity</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#talk-introduction" id="toc-talk-introduction" class="nav-link active" data-scroll-target="#talk-introduction">Talk Introduction</a></li>
+  <li><a href="#the-situation-calculus" id="toc-the-situation-calculus" class="nav-link" data-scroll-target="#the-situation-calculus">The situation calculus</a></li>
+  <li><a href="#category-theory" id="toc-category-theory" class="nav-link" data-scroll-target="#category-theory">Category Theory</a></li>
+  <li><a href="#synthetic-relativity-axioms" id="toc-synthetic-relativity-axioms" class="nav-link" data-scroll-target="#synthetic-relativity-axioms">Synthetic relativity axioms</a></li>
+  <li><a href="#relativistic-domain-theory-in-logical-form-r-dtlf" id="toc-relativistic-domain-theory-in-logical-form-r-dtlf" class="nav-link" data-scroll-target="#relativistic-domain-theory-in-logical-form-r-dtlf">Relativistic Domain Theory in Logical Form (R-DTLF)</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work">Related Work</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p>This module is also available in the following versions</p>
+<ul>
+<li><a href="slides/talk.html">slides (html)</a></li>
+<li><a href="pdfs/talk.pdf">slides (pdf)</a></li>
+</ul>
+</section>
+<section id="talk-introduction" class="level1">
+<h1>Talk Introduction</h1>
+<section id="synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer" class="level2">
+<h2 class="anchored" data-anchor-id="synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer">Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</h2>
+<p>Adrian R. Pearce</p>
+<p>School of Computing and Information Systems</p>
+<p>The University of Melbourne</p>
+</section>
+</section>
+<section id="the-situation-calculus" class="level1">
+<h1>The situation calculus</h1>
+<section id="the-situation-calculus-towers-of-hanoi" class="level2">
+<h2 class="anchored" data-anchor-id="the-situation-calculus-towers-of-hanoi">The situation calculus (Towers of Hanoi)</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers1_sharpened_transparent.png" class="quarto-figure quarto-figure-center figure-img" style="width:47.0%;height:47.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="shrink75">
+<div style="margin-top: 0.6em;">
+
+</div>
+<p><span style="color:blue">Fluents:</span> <span class="math inline">\(\mathit{OnPeg}(d, p, s)\)</span></p>
+<div style="margin-top: 0.1em;">
+
+</div>
+<p><span style="color:blue"><em>Initial Situation:</em></span></p>
+<p><span class="math display">\[
+\begin{align*}
+&amp; \mathit{OnPeg}(D_1, Peg_1, S_0) \land \\
+&amp; \mathit{OnPeg}(D_2, Peg_1, S_0) \land \\
+&amp; \mathit{OnPeg}(D_3, Peg_1, S_0)
+\end{align*}
+\]</span></p>
+<p><span style="color:blue"><em>Actions:</em></span> <span class="math inline">\(move(d, p_{from}, p_{to})\)</span></p>
+<div style="margin-top: 1.0em;">
+
+</div>
+<p><span style="color:blue"><em>Goal:</em></span> All disks on <span class="math inline">\(Peg_3\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="reiters-induction-axiom" class="level2">
+<h2 class="anchored" data-anchor-id="reiters-induction-axiom">Reiter’s Induction Axiom</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Foundational Induction Axiom: Second Order">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Foundational Induction Axiom: Second Order
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) \]</span></p>
+<ul>
+<li>Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at <span class="math inline">\(S_0\)</span>.</li>
+<li>Establishes the situation domain as an <strong>inductive</strong> datatype.</li>
+<li>Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="situations-actions" class="level2">
+<h2 class="anchored" data-anchor-id="situations-actions">Situations &amp; Actions</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers2_sharpened_transparent.png" class="quarto-figure quarto-figure-center figure-img" style="width:25.0%;height:25.0%"></p>
+</figure>
+</div>
+<div class="shrink65">
+<p><span class="math display">\[
+\begin{align*}
+\mathit{Initial\;situation:}\;&amp; S_0 \\
+&amp; do(move(D_1, Peg_1, Peg_3), S_0) \\
+do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2),\;&amp; do(move(D_1, Peg_1, Peg_3), S_0)) \\
+do(move(D_1, \mathit{Peg}_3, \mathit{Peg}_2), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2),\;&amp; do(move(D_1, Peg_1, Peg_3), S_0)) \\
+&amp; \ldots
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="situations-as-a-least-fixpoint" class="level2">
+<h2 class="anchored" data-anchor-id="situations-as-a-least-fixpoint">Situations as a Least Fixpoint</h2>
+<div class="shrink70">
+Let <span class="math inline">\(\mathcal{A}\)</span> be actions and <span class="math inline">\(\mathcal{S}\)</span> be the universe of situations. Define a monotonic operator <span class="math inline">\(\Gamma\)</span>: <span class="math display">\[ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} \]</span>
+<div style="margin-top: -0.3em;">
+
+</div>
+<p>From the <strong>Second-Order Induction Axiom</strong>:</p>
+<ul>
+<li><strong>The Premise:</strong> <span class="math inline">\(P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))\)</span> translates to <span class="math inline">\(\Gamma(P) \subseteq P\)</span>. Here, <span class="math inline">\(P\)</span> is a <strong>pre-fixed point</strong> <em>(an over-approximation that obeys the rules, but may contain unreachable “junk” like ghost situations or disconnected time loops).</em></li>
+<li><strong>The Consequent:</strong> <span class="math inline">\(\forall s\,P(s)\)</span> asserts that the true universe of situations <span class="math inline">\(\mathcal{S}\)</span> is a subset of <span class="math inline">\(P\)</span>.</li>
+<li>The axiom combines these, stating <span class="math inline">\(\mathcal{S}\)</span> is a subset of <em>every</em> valid pre-fixed point. Taking their intersection mathematically acts as a sieve, filtering out all the unshared, unreachable junk.</li>
+</ul>
+</div>
+</section>
+<section id="situations-as-a-least-fixpoint-continued" class="level2">
+<h2 class="anchored" data-anchor-id="situations-as-a-least-fixpoint-continued">Situations as a Least Fixpoint (continued)</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Knaster-Tarski Theorem: least fixpoint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Knaster-Tarski Theorem: least fixpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The intersection of all <strong>pre-fixed</strong> points of a monotonic operator yields its <strong>least fixpoint</strong>.</p>
+<div style="margin-top: -0.5em;">
+
+</div>
+<p>Therefore, the Second-Order Induction Axiom rigorously enforces</p>
+<p><span class="math display">\[\mathcal{S} = \mu X.\Gamma(X)\]</span></p>
+<p><em>Leaving only the pure, minimal valid tree.</em></p>
+</div>
+</div>
+</section>
+<section id="syntactic-transformation-to-first-order-logic" class="level2">
+<h2 class="anchored" data-anchor-id="syntactic-transformation-to-first-order-logic">Syntactic transformation to First Order Logic</h2>
+<div class="shrink68">
+<p><strong>Basic Action Theories</strong> [Lin and Reiter 94] define Theory</p>
+<p><span class="math display">\[\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup {\color{blue}{\mathcal{D}_{Poss}}} \cup {\color{blue}{\mathcal{D}_{SSA}}} \cup \mathcal{D}_{UNA}\]</span></p>
+<ul>
+<li><span class="math inline">\(\color{blue}{\mathcal{D}_{poss}}\)</span>: axioms describing the prerequisites of the primitive actions, of the form:
+<div style="margin-top: -0.8em;">
+
+</div>
+<span class="math display">\[
+Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
+\]</span> one for each primitive action <span class="math inline">\(A\)</span>.</li>
+</ul>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[
+\begin{align*}
+Poss(move(d, p_{from}, p_{to}), s) \equiv \;&amp; Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
+&amp; \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \\
+&amp; \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="a-solution-to-the-frame-problem-sometimes-reiter-91" class="level2">
+<h2 class="anchored" data-anchor-id="a-solution-to-the-frame-problem-sometimes-reiter-91">A solution to the frame problem (<span style="color:blue">sometimes</span>) [Reiter 91]</h2>
+<div class="shrink70">
+<ul>
+<li><span class="math inline">\(\color{blue}{\mathcal{D}_{ssa}}\)</span>: axioms describing the effects and non-effects of actions, of the form <span class="math inline">\(F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),\)</span> one for each fluent <span class="math inline">\(F\)</span>.</li>
+</ul>
+<ol type="1">
+<li>Positive effect axioms:</li>
+</ol>
+<div style="margin-top: -1.1em;">
+
+</div>
+<span class="math display">\[
+\exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
+\]</span>
+<div style="margin-top: -1.1em;">
+
+</div>
+<ol start="2" type="1">
+<li>Negative effect axioms:</li>
+</ol>
+<div style="margin-top: -1.1em;">
+
+</div>
+<span class="math display">\[
+\exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
+\]</span>
+<div style="margin-top: -1.1em;">
+
+</div>
+<ol start="3" type="1">
+<li>Frame axioms:</li>
+</ol>
+<div style="margin-top: -1.1em;">
+
+</div>
+<span class="math display">\[
+OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
+\]</span>
+<div style="margin-top: -1.1em;">
+
+</div>
+<ol start="4" type="1">
+<li>Completeness assumption (<span style="color:blue">explanation closure</span>):</li>
+</ol>
+<div style="margin-top: -1.1em;">
+
+</div>
+<p><span class="math display">\[
+\neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
+\]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math inline">\(\color{blue}{\mathcal{D}_{ssa}}\)</span> <span class="math inline">\(=\)</span> positive effect axioms <span class="math inline">\(+\)</span> negative effect axioms <span class="math inline">\(+\)</span> frame axioms <span class="math inline">\(+\)</span> <span style="color:blue">completeness assumption</span></p>
+</div>
+</section>
+<section id="successor-state-axioms" class="level2">
+<h2 class="anchored" data-anchor-id="successor-state-axioms">Successor State Axioms</h2>
+<div class="shrink75">
+<p>Suppose that for fluent <span class="math inline">\(F(\vec{x}, s)\)</span>:<br>
+<span class="math inline">\(\gamma_F^+(\vec{x}, a, s)\)</span> encodes all <em>positive</em> effects; and<br>
+<span class="math inline">\(\gamma_F^-(\vec{x}, a, s)\)</span> encodes all <em>negative</em> effects.</p>
+The <span style="color:blue;">successor state axiom</span> solution has the following form:
+<div style="margin-top: -0.8em;">
+
+</div>
+<span class="math display">\[
+\color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
+\]</span>
+<div style="margin-top: -0.8em;">
+
+</div>
+In our example:
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[
+\begin{align*}
+\gamma_{OnPeg}^+(d, p, a, s) \;&amp;\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
+\gamma_{OnPeg}^-(d, p, a, s) \;&amp;\stackrel{\text{def}}{=}\; \exists p_{to} \ (a = move(d, p, p_{to}))
+\end{align*}
+\]</span></p>
+<p>So successor state axiom is:</p>
+<p><span class="math display">\[
+\begin{align*}
+OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
+&amp; OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression</h2>
+<div class="shrink65">
+<p>The <strong>regression operator</strong> (<span class="math inline">\(\mathcal{R}\)</span>) evaluates a query about a future state by pushing it backward in time.</p>
+<div style="margin-top: -1.3em;">
+
+</div>
+<p><span class="math display">\[
+\mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s)
+\]</span></p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span style="color:blue"><em>For Example: is <span class="math inline">\(D_2\)</span> on <span class="math inline">\(Peg_2\)</span> after we move <span class="math inline">\(D_1\)</span> from <span class="math inline">\(Peg_1\)</span> to <span class="math inline">\(Peg_2\)</span>?</em></span></p>
+<div style="margin-top: 0.5em;">
+
+</div>
+<strong>1. Apply <span class="math inline">\(\mathcal{R}\)</span> to the query:</strong>
+<div style="margin-top: -0.5em;">
+
+</div>
+<span class="math display">\[
+\mathcal{R}[\, OnPeg(D_2, Peg_2, do({\color{red}{move(D_1, Peg_1, Peg_2)}}, S_0)) \,]
+\]</span>
+<div style="margin-top: -0.5em;">
+
+</div>
+<strong>2. Syntactic substitution (using our SSA):</strong>
+<div style="margin-top: -0.5em;">
+
+</div>
+<span class="math display">\[
+\begin{align*}
+\equiv \;&amp; [\exists p_{from} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, p_{from}, Peg_2))] \lor \\
+&amp; {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg [\exists p_{to} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, Peg_2, p_{to}))]
+\end{align*}
+\]</span>
+<div style="margin-top: -0.5em;">
+
+</div>
+<p><strong>3. Evaluate using Foundational Axioms (<span class="math inline">\(\mathcal{D}_{una}\)</span>):</strong> Because our Unique Names Axioms explicitly state <span class="math inline">\(D_1 \neq D_2\)</span>, both action equivalences mathematically evaluate to <span class="math inline">\(False\)</span>:</p>
+<div style="margin-top: -0.5em;">
+
+</div>
+<p><span class="math display">\[
+\equiv \mathrm{False} \lor {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg \mathrm{False}
+\]</span></p>
+<div style="margin-top: -1.0em;">
+
+</div>
+<strong>4. Logical Result:</strong>
+<div style="margin-top: -1.0em;">
+
+</div>
+<p><span class="math display">\[
+\equiv {\color{blue}{OnPeg(D_2, Peg_2, S_0)}}
+\]</span></p>
+</div>
+</section>
+<section id="foundational-limitations-of-least-fixpoints" class="level2">
+<h2 class="anchored" data-anchor-id="foundational-limitations-of-least-fixpoints">Foundational Limitations of Least Fixpoints?</h2>
+<div class="shrink70">
+<p>While classical induction successfully builds a valid history, enforcing this rigid geometry creates severe structural limits for dynamic, self-reflective systems:</p>
+<ul>
+<li><strong>Strict Tree Topology (<span style="color:blue">Unique Predecessors</span>):</strong> Distinct action histories never converge. Even if two different paths result in the same state, the logic traps them in isolated parallel universes.</li>
+<li><strong>Total Ordering (<span style="color:blue">The Self-Reflection Barrier</span>):</strong> The strictly linear sequence of actions restricts true partial ordering and concurrency. The logic cannot step “outside” the sequence to self-reflect or re-evaluate its overarching reference frame.</li>
+<li><strong>No Native State Equivalence:</strong> Because states are strictly defined by their rigid <em>syntactic history</em> rather than their <em>observable behaviour</em>, <span style="color:blue">the topology cannot naturally “fold” or quotient identical states together.</span></li>
+<li><strong>The Finiteness Barrier:</strong> By mathematical definition, a least fixpoint (<span class="math inline">\(\mu\)</span>) only constructs strictly <em>finite</em> chains. <span style="color:blue">It is blind to infinite, continuous processes</span>.</li>
+</ul>
+</div>
+</section>
+<section id="property-persistence-as-a-greatest-fixpoint" class="level2">
+<h2 class="anchored" data-anchor-id="property-persistence-as-a-greatest-fixpoint">Property Persistence as a Greatest Fixpoint</h2>
+<div class="shrink68">
+<p>Property persistence in the situation calculus captures a condition <span class="math inline">\(\phi\)</span> that holds <em>now</em> and is preserved after <em>any legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>).</p>
+<p>[Kelly &amp; Pearce AIJ 2010] define this as the <strong>Persistence operator</strong> (<span class="math inline">\(\mathcal{P}\)</span>):</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mathcal{P}(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathcal{R}[\, Z(do(a, s)) \,] \big) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span style="color:blue">Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the second-order induction axiom.</span></p>
+<ul>
+<li>By wrapping the single-step regression operator <span class="math inline">\(\mathcal{R}\)</span> inside a monotonic formula transformer (<span class="math inline">\(\mathcal{P}\)</span>), the future can be evaluated back in the current state.</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Syntactic Limit: Greatest Fixpoints ($\nu Z$)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Syntactic Limit: Greatest Fixpoints (<span class="math inline">\(\nu Z\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Property persistence is an infinite-horizon <strong>safety property</strong>.</li>
+<li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \mathcal{P}(Z)\)</span>.</li>
+<li><em>The Problem:</em> <span style="color:blue">Regression builds finite states. To syntactically evaluate this infinite fixpoint, we must shift our mathematical framework.</span></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="category-theory" class="level1">
+<h1>Category Theory</h1>
+<section id="the-dual-problems-algebras-coalgebras" class="level2">
+<h2 class="anchored" data-anchor-id="the-dual-problems-algebras-coalgebras">The Dual Problems: Algebras &amp; Coalgebras</h2>
+<div class="shrink68">
+<p>To transition from finite histories to observing infinite Greatest Fixpoints, we harness <strong>Category Theory</strong>. An <em>endofunctor</em> (<span class="math inline">\(F\)</span>) over a state space (<span class="math inline">\(S\)</span>) is a structural template that shapes the resulting data object, <span class="math inline">\(F(S)\)</span>.</p>
+<ul>
+<li><strong>Algebra (Situation Calculus / Constructor):</strong> Morphism arrows point <em>inward</em>: <span class="math inline">\(\; F(S) \to S\)</span>
+<ul>
+<li>Our endofunctor shapes the inputs: <span class="math inline">\(F(S) = Action \times S\)</span></li>
+<li>The <em>morphism</em> evaluates to: <span class="math inline">\({\color{blue}{(Action \times State_{current}) \to State_{next}}}\)</span></li>
+<li><em>Concept:</em> <span style="color:blue"><em>Construct</em> a history from the bottom-up.</span></li>
+</ul></li>
+<li><strong>Coalgebra (Property Persistence / Observer):</strong> Morphism arrows point <em>outward</em>: <span class="math inline">\(\; S \to F(S)\)</span>
+<ul>
+<li>Our endofunctor shapes the emitted data: <span class="math inline">\(F(S) = Observation \times S\)</span></li>
+<li>The morphism evaluates to: <span class="math inline">\({\color{blue}{State_{current} \to (Observation \times State_{next}}})\)</span></li>
+<li><em>Concept:</em> <span style="color:blue">Take a running state, break off an <em>observation</em>, and unfold the remaining state into the future.</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="categorical-proof-techniques-coinduction-stone-duality" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-proof-techniques-coinduction-stone-duality">Categorical Proof Techniques: Coinduction &amp; Stone Duality</h2>
+<div class="shrink72">
+<p>To reason about infinite streams when operating in <em>coalgebras</em>, we harness two categorical proof mechanisms.</p>
+<p><strong>1. Coinduction (The Dual of Induction)</strong> While standard induction proves a finite base case and builds upward, coinduction works top-down. It <em>proposes</em> a Greatest Fixpoint (an infinite rule, <span class="math inline">\(\nu Z\)</span>) and verifies it locally.</p>
+<p><em>If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</em></p>
+<p><strong>2. Stone Duality (Syntax-Semantics)</strong> In Category Theory, <strong>Stone Duality</strong> dictates an duality between Syntax (logical formulas) and Semantics (topological state space).</p>
+<ul>
+<li><span style="color:blue"><em>The Syntactic Transformation:</em> If our logic formally declares two distinct observational paths to be identical (Bisimulation Equivalence) <span class="math inline">\(\ldots\)</span></span></li>
+<li><span style="color:blue"><span class="math inline">\(\ldots\)</span> <em>The Semantic Result:</em> Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.</span></li>
+</ul>
+</div>
+</section>
+<section id="example-coinduction-in-towers-of-hanoi" class="level2">
+<h2 class="anchored" data-anchor-id="example-coinduction-in-towers-of-hanoi">Example: Coinduction in Towers of Hanoi</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers2_sharpened_transparent.png" class="quarto-figure quarto-figure-center figure-img" style="width:8.0%;height:8.0%"></p>
+</figure>
+</div>
+<div style="margin-top: -1.2em;">
+
+</div>
+<div class="shrink75">
+IF we observe the <em>relative movement</em> of the smallest disk <span class="math inline">\(D_1\)</span> (alternating moves with <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>) on <span class="math inline">\(\mathit{OnPeg}(d,p,s)\)</span>:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \Delta p \equiv (p_{to} - p_{from}) \pmod 3 \]</span></p>
+<strong>1. The Coalgebraic Stream:</strong> Solving the puzzle generates an infinite stream of spatial jumps:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \langle +2 \rangle, \langle -1 \rangle, \langle -1 \rangle, \langle +2 \rangle \dots \]</span></p>
+<strong>2. The Coinductive Proposal:</strong> We propose an idealised Greatest Fixpoint where the disk <em>always</em> cycles left:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z \]</span></p>
+</div>
+</section>
+<section id="example-coinduction-in-towers-of-hanoi-continued" class="level2">
+<h2 class="anchored" data-anchor-id="example-coinduction-in-towers-of-hanoi-continued">Example: Coinduction in Towers of Hanoi (Continued)</h2>
+<div class="shrink75">
+<p><strong>3. The Coinductive Step (Bisimulation):</strong> Following <span class="math inline">\(+2\)</span>, the stream outputs a jump of <span class="math inline">\(-1\)</span>. <span style="color:blue">How does our <em>proposed invariant</em> survive this paradox?</span></p>
+<div style="margin-top: 0.3em;">
+
+</div>
+To satisfy the local coinductive check, the logic evaluates the domain’s geometry. It formally recognises that jumping right twice (<span class="math inline">\(+2\)</span>) is structurally indistinguishable from jumping left once (<span class="math inline">\(-1\)</span>). It applies this coinductive equivalence:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi \]</span></p>
+<p><strong>4. The Stone Duality Resolution:</strong> By syntactically equating these propositions, <strong>Stone Duality</strong> automatically forces the absolute state space to fold into a modulo-3 <em>quotient ring</em> (<span class="math inline">\(\mathbb{Z}_3\)</span>)!</p>
+<p><span style="color:blue">This is our new syntactic transformation!</span></p>
+</div>
+</section>
+</section>
+<section id="synthetic-relativity-axioms" class="level1">
+<h1>Synthetic relativity axioms</h1>
+<section id="tri-modality-ternary-representation" class="level2">
+<h2 class="anchored" data-anchor-id="tri-modality-ternary-representation">Tri-modality &amp; ternary representation</h2>
+<div class="shrink85">
+<p>Logical entailment operates within a <strong>Total Category</strong>—a mathematically complete Stone Duality glues syntax and semantics together.</p>
+<p>It is evaluated relative to a specific baseline <strong>Reference Frame</strong>, <span class="math inline">\(\mathrm{S_f}\)</span>. This facilitates the rules and symmetries over which the observer’s duality is constructed.</p>
+<ul>
+<li>It utilises a ternary structure, drawing from <strong>Routley-Meyer semantics</strong> for substructural, relevance, and intuitionistic logics, involving relations <span class="math inline">\(R(x, y, \mathrm{S_f})\)</span>.</li>
+<li>This allows us to decouple the synthetic (axiomatic) transformations from the topological space.</li>
+</ul>
+</div>
+</section>
+<section id="synthetic-relativity-axioms-1" class="level2">
+<h2 class="anchored" data-anchor-id="synthetic-relativity-axioms-1">Synthetic Relativity Axioms</h2>
+<div class="shrink75">
+<p>The space is governed by three interacting modalities.</p>
+<ul>
+<li><strong><span class="math inline">\({\color{blue}{\mathrm{RDo}}}\)</span> (The Subproblem / Syntax): The Inductive Accumulator (<span class="math inline">\(\Box_1\)</span>)</strong> Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path.</li>
+<li><strong><span class="math inline">\({\color{blue}{\mathrm{ODo}}}\)</span> (The Master Problem / Semantics): The Limit/Creator Modality (<span class="math inline">\(\Box_2\)</span>)</strong> The semantic evaluator and <em>interval invariant</em>.</li>
+</ul>
+<div style="margin-top: -0.3em;">
+
+</div>
+<p><em>Performs topological closure—evaluating the directed set generated by <span class="math inline">\(\mathrm{RDo}\)</span> and snapping it into a discrete, continuous limit.</em></p>
+<ul>
+<li><strong><span class="math inline">\({\color{blue}{\mathrm{PDo}}}\)</span> (Autonomous Progression): The Dynamic Transition Functor (<span class="math inline">\(\Box_3\)</span>)</strong> The transition modality that governs the forward evolution of the system.</li>
+</ul>
+<div style="margin-top: -0.3em;">
+
+</div>
+<p><em>Mathematically, it acts as an endofunctor within the Total Category, orchestrating the step-by-step recursive interaction (categorical adjunction) of local syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and global semantics (<span class="math inline">\(\mathrm{ODo}\)</span>) relative to <span class="math inline">\(S_f\)</span>.</em></p>
+</div>
+</section>
+<section id="constructive-accumulation" class="level2">
+<h2 class="anchored" data-anchor-id="constructive-accumulation">Constructive Accumulation</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Axiom 1: The Axiom of Constructive Accumulation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Axiom 1: The Axiom of Constructive Accumulation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Dynamic Transition Functor (<span class="math inline">\(\mathrm{PDo}\)</span>) governs the autonomous progression of the system via a strict recursive transition law relative to the Reference Frame (<span class="math inline">\(S_f\)</span>):</p>
+<ul>
+<li><strong>Base Case (Initialisation):</strong> Let <span class="math inline">\(S_r^{(0)}\)</span> and <span class="math inline">\(S_o^{(0)}\)</span> be the initial states. <span class="math display">\[ \Sigma_0 = \mathrm{PDo}\big(S_r^{(0)},\; S_o^{(0)},\; S_f\big) \]</span></li>
+<li><strong>Successor Rule (Inductive Step):</strong> For any step <span class="math inline">\(n \ge 0\)</span>, the next state strictly nests new inductive syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantic coinduction (<span class="math inline">\(\mathrm{ODo}\)</span>): <span class="math display">\[ \Sigma_{n+1} = \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_{n+1}, S_r^{(n)}\big),\; \mathrm{ODo}\big(O_{n+1}, S_o^{(n)}\big),\; S_f \,\Big) \]</span></li>
+</ul>
+</div>
+</div>
+<div style="margin-top: -0.2em;">
+
+</div>
+</section>
+<section id="constructive-accumulation-continued" class="level2">
+<h2 class="anchored" data-anchor-id="constructive-accumulation-continued">Constructive Accumulation (continued)</h2>
+<div class="shrink75">
+<p>Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:</p>
+<span class="math display">\[ \mathrm{PDo}(S_r, S_o, S_f) \]</span>
+<div style="margin-top: -0.6em;">
+
+</div>
+<span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) \]</span>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \dots \mathit{etc.} \]</span></p>
+<p><em>“Relative to reference frame <span class="math inline">\(S_f\)</span>, the accumulation of inductive evidence <span class="math inline">\(\mathrm{RDo}\)</span> yields the coinductively realised semantic limit <span class="math inline">\(\mathrm{ODo}\)</span>.”</em></p>
+</div>
+</section>
+<section id="semantic-realisation" class="level2">
+<h2 class="anchored" data-anchor-id="semantic-realisation">Semantic Realisation</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem I: Semantic Realisation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem I: Semantic Realisation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Semantic Realisation</strong> is the mathematical state where syntax and semantics converge. Because the logic builds upon finite, verifiable observables, autonomous progression halts when the topology reaches Algebraic Compactness:</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right) \]</span></p>
+<div style="margin-top: -1.1em;">
+
+</div>
+<ul>
+<li><strong><span class="math inline">\(\bigsqcup \mathrm{RDo}\)</span> (Syntax):</strong> <span style="color:blue">By induction builds a raw chain of evidence from the ground up.</span></li>
+<li><strong><span class="math inline">\(\mathrm{ODo}\)</span> (Semantics):</strong> <span style="color:blue">The top-down evaluator reads the syntax trace and evaluates its truth value.</span></li>
+</ul>
+<div style="margin-top: -1.0em;">
+
+</div>
+<p><strong>Proof Sketch:</strong> Corresponds to the computation of the <strong>Kleene Fixed-Point Theorem</strong> <span class="math inline">\(+\)</span> <strong>Algebraic Compactness</strong> (next slide).</p>
+</div>
+</div>
+</section>
+<section id="the-dual-fixpoints-algebraic-compactness" class="level2">
+<h2 class="anchored" data-anchor-id="the-dual-fixpoints-algebraic-compactness">The Dual Fixpoints: Algebraic Compactness</h2>
+<div class="shrink66">
+<p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) &amp; Persistence (<span class="math inline">\(\nu\)</span>):</strong> By intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the dynamic transition functor (<span class="math inline">\(\mathrm{PDo}\)</span>) mathematically fuses two distinct forms of logical progression:</p>
+<ol type="1">
+<li><strong>Induction / Least Fixpoint (<span class="math inline">\(\mu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{RDo}\)</span> modality. The bottom-up synthesis of finite evidence from baseline ignorance (<span class="math inline">\(\bot\)</span>). It guarantees computational <em>Reachability</em>.</li>
+<li><strong>Coinduction / Greatest Fixpoint (<span class="math inline">\(\nu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{ODo}\)</span> modality. The top-down evaluation of continuous semantics. It guarantees <em>Safety and Property Persistence</em>.</li>
+</ol>
+</div>
+<div style="margin-top: -0.4em;">
+
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem II: Algebraic Compactness">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem II: Algebraic Compactness
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because <strong>Theorem I (Semantic Realisation)</strong> formally computes a categorical <em>bilimit</em>, the system achieves algebraic compactness. <span style="color:blue">At convergence, the initial algebra of the dynamic transition functor coincides with its final coalgebra:</span></p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) \]</span></p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><em>The active inductive trace (<span class="math inline">\(\mu\)</span>) strictly fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</em></p>
+</div>
+</div>
+</section>
+<section id="the-synthetic-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="the-synthetic-transformation">The Synthetic Transformation</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Axiom 2: The Axiom of Synthetic Transformation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Axiom 2: The Axiom of Synthetic Transformation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Once Realisation is achieved, the relativistic reference frame mathematically shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\({\color{blue}{O}}\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
+<p><span class="math display">\[ \mathrm{PDo}(N, {\color{blue}{O}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{O}}) \]</span></p>
+<div style="margin-top: -0.7em;">
+
+</div>
+<ul>
+<li><strong>Left Side:</strong> The realised state computed within the initial reference frame (<span class="math inline">\(S_f\)</span>).</li>
+<li><strong>The Arrow (<span class="math inline">\(\longrightarrow\)</span>):</strong> The Synthetic Transformation (Topological closure and categorical Change of Base).</li>
+<li><strong>Right Side:</strong> A new, higher-order autonomous progression begins.</li>
+</ul>
+<p><span style="color:blue">The semantic limit <span class="math inline">\(O\)</span> has mathematically synthesised into an syntactic, discrete baseline Reference Frame <span class="math inline">\(S_f\)</span> for the new subproblem (<span class="math inline">\(X\)</span>).</span></p>
+</div>
+</div>
+</section>
+<section id="towers-of-hanoi-example" class="level2">
+<h2 class="anchored" data-anchor-id="towers-of-hanoi-example">Towers of Hanoi example</h2>
+<div class="shrink70">
+<p><strong>1. Local Unrolling (Building the Situation Trace):</strong> The logic recursively accumulates primitive actions <span style="color:blue">(moving disks)</span>, generating the topological equivalent of a nested <span class="math inline">\(do()\)</span> sequence:</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big({\color{blue}{\text{move}(D_1, P_2)}}, \dots S_f\big),\; \mathrm{ODo}\big(O_{\text{target}}, \text{Goal}\big),\; S_f \,\Big) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><strong>2. Limit Catching:</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_2\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <span style="color:blue">The Parity Invariant (<span class="math inline">\(O_{\text{parity}}\)</span>).</span></p>
+<p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transformation Axiom fires, executing a categorical Change of Base:</p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathrm{O_{\text{parity}}}}}) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p>The invariant (cycle <span class="math inline">\(D_1\)</span>, alternate move, cycle <span class="math inline">\(D_1\)</span>) emerges as the unique, strictly positive proof path through the state space.</p>
+<ul>
+<li>The new parity invariant shifts to become the Reference Frame. By adopting this rule as a <strong>lifted axiom</strong>, <em>the search tree branching factor strictly collapses from 3 down to 1.</em></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="relativistic-domain-theory-in-logical-form-r-dtlf" class="level1">
+<h1>Relativistic Domain Theory in Logical Form (R-DTLF)</h1>
+<section id="dtlf-logical-primitivesno-negation-or-implication" class="level2">
+<h2 class="anchored" data-anchor-id="dtlf-logical-primitivesno-negation-or-implication">DTLF Logical Primitives—No negation or implication</h2>
+<div class="shrink60">
+<p>We ground our system in Abramsky’s <strong>DTLF</strong> (1991) based on an <strong>intuitionistic</strong> construction of truth, since we require a logic that fuses <span style="color:blue">classical (inductive) logic with intuitionistic (coinductive) logic</span>. DTLF formulas represent observable properties as they unfold, and because the system can only assert what it can finitely verify, the baseline syntax is strictly positive.</p>
+<div style="margin-top: -0.3em;">
+
+</div>
+<p><span class="math display">\[ \phi, \psi  ::=  \top  \mid  \bot  \mid  \phi \land \psi  \mid  \phi \lor \psi  \mid  \text{Constructors}(\phi) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<ul>
+<li><p><strong><span class="math inline">\(X, Y\)</span> (Variables):</strong> Placeholders used to define recursive logical properties.</p></li>
+<li><p><strong><span class="math inline">\(\top\)</span> (True / Top):</strong> The trivial observation (a valid transition occurred). <strong><span class="math inline">\(\bot\)</span> (False / Falsum):</strong> The null observation (a paradox occurred)—The baseline ignorance from which new inductive proofs begin.</p></li>
+<li><p><strong><span class="math inline">\(\phi \land \psi \ / \ \phi \lor \psi\)</span> (Conjunction / Disjunction):</strong> “I simultaneously observe both <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span>” / “I observe either <span class="math inline">\(\phi\)</span> or <span class="math inline">\(\psi\)</span>.”</p></li>
+<li><p><strong><span class="math inline">\(\langle \delta \rangle \phi\)</span> (The Coalgebraic Transition Modality):</strong> This is the literal “arrow breaking in two.” It reads: <em>“The system makes a visible relativistic jump of <span class="math inline">\(\delta\)</span> (where <span class="math inline">\(\delta \in \mathbb{Z}\)</span>), and the continuing, unobserved future stream will satisfy property <span class="math inline">\(\phi\)</span>.”</em> <span style="color:blue">Because this evaluates future observation rather than past history, it serves as the formal logical engine for bisimulation and state-folding.</span></p></li>
+<li><p><strong><span class="math inline">\(\mu X.\ \Phi(X)\)</span> / <span class="math inline">\(\nu X.\ \Phi(X)\)</span> (Least &amp; Greatest Fixpoints):</strong> The primitives for recursive behaviour. <span style="color:blue"><span class="math inline">\(\mu\)</span> drives finite, bottom-up induction from baseline ignorance (reachability), while <span class="math inline">\(\nu\)</span> defines an endlessly repeating, top-down coinductive stream (persistence).</span></p></li>
+</ul>
+</div>
+</section>
+<section id="example-computing-the-hanoi-parity-invariant" class="level2">
+<h2 class="anchored" data-anchor-id="example-computing-the-hanoi-parity-invariant">Example: Computing the Hanoi Parity Invariant</h2>
+<div class="shrink70">
+<p>We can now express our hypothesis for the Towers of Hanoi in DTLF.</p>
+<p><span style="color:blue"><em>We co-induce an idealised invariant in DTLF where the smallest disk flawlessly cycles one peg to the left (<span class="math inline">\(-1\)</span>) forever.</em></span></p>
+<div style="margin-top: 0.5em;">
+
+</div>
+<strong>1. Proposing the Idealised Rule:</strong> We propose this property as our Greatest Fixpoint:
+<div style="margin-top: -0.8em;">
+
+</div>
+<span class="math display">\[
+ParityInvariant \equiv \nu X.\ \langle -1 \rangle X
+\]</span>
+<div style="margin-top: -0.8em;">
+
+</div>
+<strong>2. The Reality:</strong> However, the puzzle generates a stream that forces a forward jump of <span class="math inline">\(+2\)</span> from <span class="math inline">\(Peg_1\)</span> back to <span class="math inline">\(Peg_3\)</span>. The observable bounds are:
+<div style="margin-top: -0.8em;">
+
+</div>
+<span class="math display">\[
+Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
+\]</span>
+<div style="margin-top: -0.7em;">
+
+</div>
+<strong>3. Syntactic Bisimulation Equivalence:</strong> Because the topological futures of <span class="math inline">\(+2\)</span> and <span class="math inline">\(-1\)</span> land on the identical peg, we apply our syntactic equivalence (<span class="math inline">\(\langle +2 \rangle \phi \equiv \langle -1 \rangle \phi\)</span>). This cleanly collapses the stream into our idealised property:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[
+\nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X) \;\equiv\; \nu X.\ \langle -1 \rangle X
+\]</span></p>
+</div>
+</section>
+<section id="spatial-completeness-the-static-limitation-r-dtlf" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-completeness-the-static-limitation-r-dtlf">Spatial Completeness &amp; The Static Limitation: R-DTLF</h2>
+<div class="shrink78">
+<p>The mathematical power of vanilla DTLF lies in <strong>Spatial Completeness</strong> (rooted in Stone Duality).</p>
+<ul>
+<li><strong>The Guarantee:</strong> It proves a 1-to-1 isomorphism between the algebraic, step-by-step <strong>Syntax</strong> (<span class="math inline">\(\phi \vdash \psi\)</span>) and the continuous, geometric <strong>Semantics</strong> (<span class="math inline">\([\![\phi]\!] \subseteq [\![\psi]\!]\)</span>).</li>
+<li><strong>Catching Limits:</strong> Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).</li>
+</ul>
+<p>Vanilla DTLF describes a single, <em>static</em> universe.</p>
+<ul>
+<li>To model the <em>dynamic</em> aspects of the Relativity Axioms, the Reference Frame itself must dynamically shift, so <span style="color:blue">we use a relativistic version of DTLF, termed R-DTLF</span>.</li>
+</ul>
+</div>
+</section>
+<section id="compilation-into-ssas-topological-booleanization" class="level2">
+<h2 class="anchored" data-anchor-id="compilation-into-ssas-topological-booleanization">Compilation into SSAs &amp; Topological Booleanization</h2>
+<div class="shrink87">
+<p>R-DTLF does not discard classical logic; it functionally <em>generates</em> it at the semantic limits.</p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem III: Topological Booleanization (Compiling SSAs)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem III: Topological Booleanization (Compiling SSAs)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Upon semantic realisation, the continuous, intuitionistic trace generated by <span class="math inline">\(\mathrm{RDo}\)</span> can be losslessly compiled into a discrete, classical First-Order representation via the <strong>Lawvere-Tierney Double Negation (<span class="math inline">\(\neg\neg\)</span>) Topology</strong>.</p>
+<p><strong>Proof Sketch:</strong> Topos theory guarantees that inside every fluid, intuitionistic space exists a rigid <strong>Boolean sub-topos</strong>. <span style="color:blue">Projecting onto this classical space preserves First-Order quantification while safely restoring the Law of Excluded Middle and hard negation.</span></p>
+</div>
+</div>
+</section>
+<section id="compilation-into-ssas-topological-booleanization-contd" class="level2">
+<h2 class="anchored" data-anchor-id="compilation-into-ssas-topological-booleanization-contd">Compilation into SSAs &amp; Topological Booleanization (cont’d)</h2>
+<div class="shrink85">
+<ul>
+<li><strong>Compiling Successor State Axioms (SSAs):</strong> This geometric compression is the categorical homologue to Ray Reiter’s <em>Explanation Closure</em>. The Relativistic approach acts as a logic compiler—mathematically closing the open intuitionistic trace, and synthesising the discovered invariant directly into First-Order rules.</li>
+<li><strong>Hybrid Execution:</strong> Because of this formal theorem, we can securely export newly learned R-DTLF invariants directly into standard classical Basic Action Theories (BATs).</li>
+</ul>
+<p><span style="color:blue">This enables a powerful hybrid architecture: R-DTLF handles complex, infinite structural learning, and hands the compiled, closed-world rules off to legacy First-Order solvers (like Golog) for rapid execution.</span></p>
+</div>
+</section>
+<section id="updated-towers-of-hanoi-poss-ssa" class="level2">
+<h2 class="anchored" data-anchor-id="updated-towers-of-hanoi-poss-ssa">Updated Towers of Hanoi Poss &amp; SSA:</h2>
+<div class="shrink70">
+<p><span class="math display">\[\begin{align*}
+Poss(move(d, p_{from}, p_{to}), s) \equiv \;&amp; Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
+&amp; \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \\
+&amp; \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big) \\
+&amp; \color{blue}{ \land \ \big( d = D_1 \leftrightarrow Parity(s) \big) } \\
+&amp; \color{blue}{ \land \ \big( d = D_1 \rightarrow p_{to} \equiv (p_{from} + \Delta) \pmod 3 \big) }
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+OnPeg(d, p, do(a, s)) \equiv \;&amp; \Big( [\exists p_{from} \ (a = move(d, p_{from}, p))] \\
+&amp; \color{blue}{ \land \ \big( d = D_1 \rightarrow p \equiv (p_{from} + \Delta) \pmod 3 \big) \Big) } \lor \\
+&amp; OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
+\end{align*}\]</span></p>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<section id="conclusion-1" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-1">Conclusion</h2>
+<div class="shrink60">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Standard Situation Calculus (Induction)</th>
+<th style="text-align: left;">Synthetic Relativity (R-DTLF) (Coinduction)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Objective</strong></td>
+<td style="text-align: left;">Historical Reachability / Action Execution</td>
+<td style="text-align: left;">Property Persistence / <span style="color:blue">Self-transcending reasoning</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Conceptual Math</strong></td>
+<td style="text-align: left;">Least Fixpoint (LFP)</td>
+<td style="text-align: left;">Greatest Fixpoint (GFP) &amp; Least Fixpoint LFP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Logical Foundation</strong></td>
+<td style="text-align: left;">Second-Order Induction (Algebraic)</td>
+<td style="text-align: left;">Co-induction (Coalgebraic) + Induction (Algebraic)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Syntactic Transformation</strong></td>
+<td style="text-align: left;">Transformation into First-Order Logic (SSAs)</td>
+<td style="text-align: left;">Transformation to coinduced properties then compiled to SSAs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Computation</strong></td>
+<td style="text-align: left;">Computed as LFP in the <span class="math inline">\(Do\)</span> modality (Golog)</td>
+<td style="text-align: left;">Computed in the DTLF + Do modality (Golog)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Resolution</strong></td>
+<td style="text-align: left;">First-Order Theorem Proving</td>
+<td style="text-align: left;">Bisimulation Equivalence (Quotients) + First-Order Theorem Proving</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="related-work" class="level1">
+<h1>Related Work</h1>
+<section id="related-work-1" class="level2">
+<h2 class="anchored" data-anchor-id="related-work-1">Related Work</h2>
+<div class="shrink70">
+<p><strong>1. Action Theories &amp; Fixpoint Verification</strong></p>
+<ul>
+<li><strong>Model Checking in the Situation Calculus with the <span class="math inline">\(\mu\)</span> calculus:</strong> [De Giacomo et al.]</li>
+</ul>
+<p>By quotienting infinite state spaces via bisimulation into finite abstractions, they enabled the formal verification of dynamic, non-terminating systems using standard fixpoint model checking.</p>
+<p><strong>2. Categorical Logic &amp; Observational Duality</strong></p>
+<ul>
+<li><strong>Domain Theory in Logical Form (DTLF):</strong> [Abramsky, 1991] established the foundational Stone Duality connecting denotational semantics (continuous topological domains) to program logic (finite observable properties).</li>
+</ul>
+<p>Modern Coalgebraic Logic extends this duality to state-transition systems, directly mirroring our framework’s state-collapse mechanism.</p>
+</div>
+</section>
+<section id="related-work-continued" class="level2">
+<h2 class="anchored" data-anchor-id="related-work-continued">Related Work (continued)</h2>
+<div class="shrink70">
+<p><strong>3. Bounding Infinite Search &amp; Forcing Convergence</strong></p>
+<ul>
+<li><strong>Abstract Interpretation &amp; Widening:</strong> To guarantee least fixpoint convergence in infinite lattices, [Cousot &amp; Cousot, 1977] introduced the <strong>widening operator (<span class="math inline">\(\nabla\)</span>)</strong>.</li>
+</ul>
+<p>Similar to our topological limit (<span class="math inline">\(\mathrm{ODo}\)</span>), widening mathematically extrapolates a diverging inductive sequence, forcing it to snap to a safe, stable limit in finite time.</p>
+<ul>
+<li><strong>Inverse Entailment for Inductive Logic Programming (ILP):</strong> [Muggleton 1995] avoids generating infinite relative least general generalisations (RLGGs).</li>
+</ul>
+<p>Inverse Entailment bounds the inductive search strictly between the empty clause (most general) and a finite bottom clause (most specific), grounding background knowledge relative to finite examples.</p>
+<ul>
+<li><strong>Equational Anti-Unification:</strong> [Cerna &amp; Kutsia, 2023] In modern program synthesis, anti-unification is applied over <span class="math inline">\(E\)</span>-graphs to efficiently extract common programmatic substructures and compress code without diverging into infinite logical spaces.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="future-work" class="level1">
+<h1>Future Work</h1>
+<section id="future-work-formalising-relativistic-invariance" class="level2">
+<h2 class="anchored" data-anchor-id="future-work-formalising-relativistic-invariance">Future Work: Formalising Relativistic Invariance</h2>
+<div class="shrink68">
+<p>In physical relativity, shifting reference frames mathematically preserves the fundamental 4D spacetime interval across all frames (<span class="math inline">\(\Delta s^2 = \Delta s'^2\)</span>): <span class="math inline">\(\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)\)</span>.<br> We hypothesise a categorical equivalent for our semantic limits.</p>
+</div>
+<div class="shrink88">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conjecture: Relativistic Invariance of the Semantic Interval">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Conjecture: Relativistic Invariance of the Semantic Interval
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The Hypothesis:</strong> Under the <strong>Synthetic Transformation</strong>, the semantic integrity of the realised limit (<span class="math inline">\(O\)</span>) is structurally preserved across the categorical Change of Base.</p>
+<p><strong>Proposed Formalisation:</strong> By modelling the reference frame shift as a <strong>Geometric Morphism</strong>, we invoke its inverse image functor (<span class="math inline">\(f^*\)</span>). While a Change of Base does not universally preserve all classical logic, Topos theory mathematically guarantees that <span class="math inline">\(f^*\)</span> strictly preserves <strong>Geometric Logic</strong> (finite limits and arbitrary colimits). Because our inductive trace is built purely on these observable primitives, its geometric integrity is mathematically guaranteed to survive the shift.</p>
+</div>
+</div>
+</div>
+<div class="shrink65">
+<div style="margin-top: -0.5em;">
+
+</div>
+<ul>
+<li><strong>Next Steps:</strong> Formalising the Beck-Chevalley boundary conditions required to ensure seamless quantifier preservation (<span class="math inline">\(\forall, \exists\)</span>) when the system mathematically synthesises higher-order subproblems.</li>
+</ul>
+</div>
+</section>
+<section id="self-transcending-theory-driven-generalisation" class="level2">
+<h2 class="anchored" data-anchor-id="self-transcending-theory-driven-generalisation">Self-Transcending, Theory-Driven Generalisation</h2>
+<div class="shrink75">
+<p>When the converged limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the <strong>Synthetic Transformation</strong>, it acts natively as a global Greatest Fixpoint (<span class="math inline">\(\nu\)</span>) and the coinduced property is permanently added to the reference theory. The system treats <strong>generalisation</strong> not as a heuristic search, but as a rigorous categorical operation over <span class="math inline">\(S_f\)</span>, governed by the foundational duality of fibrations and adjunctions:</p>
+<ul>
+<li><strong>1. Change of Base (The Fibrational Shift)</strong>
+<ul>
+<li>Logical properties form a <em>Total Category</em> fibered over a <em>Base Category</em> of states and reference frames.</li>
+<li>The system performs a categorical <strong>Change of Base</strong>, pulling the fully realised semantic space (<span class="math inline">\(\mathrm{ODo}\)</span>) down to become the new geometric foundation for future inductive proofs (<span class="math inline">\(\mathrm{RDo}\)</span>). Complex, inductively proven histories are safely compressed into the atomic geometry of the new baseline frame.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="self-transcending-theory-driven-generalisation-contd" class="level2">
+<h2 class="anchored" data-anchor-id="self-transcending-theory-driven-generalisation-contd">Self-Transcending, Theory-Driven Generalisation (cont’d)</h2>
+<div class="shrink75">
+<ul>
+<li><strong>2. Adjoint Duality (Swapping the Problem)</strong>
+<ul>
+<li><span style="color:blue">Generalising a safe invariant is structurally the dual to deductive planning</span> (a Categorical Adjunction: <span class="math inline">\(L \dashv R\)</span>).</li>
+<li><em>Planning (Left Adjoint, <span class="math inline">\(L\)</span>):</em> Inductive, bottom-up synthesis of a finite trace (Least Fixpoint, <span class="math inline">\(\mu\)</span>). Left adjoints natively preserve colimits.</li>
+<li><em>Generalising (Right Adjoint, <span class="math inline">\(R\)</span>):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint, <span class="math inline">\(\nu\)</span>). Right adjoints natively preserve limits. Finite local observations mathematically push across the adjunction to rigorously force the coinductive proposal.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="self-transcending-theory-driven-generalisation-contd-1" class="level2">
+<h2 class="anchored" data-anchor-id="self-transcending-theory-driven-generalisation-contd-1">Self-Transcending, Theory-Driven Generalisation (cont’d)</h2>
+<div class="shrink70">
+<ul>
+<li><strong>3. Universal Properties (Terminal Coalgebras)</strong>
+<ul>
+<li>The system requires no external human engineering templates or artificial “Syntax-Guided Synthesis” (SyGuS) biases.</li>
+<li>Because <span class="math inline">\(S_f\)</span> natively encodes the geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a <strong>Universal Property</strong> (specifically, a <em>Terminal Coalgebra</em>).</li>
+<li><strong>Stone Duality</strong> mathematically guarantees that the internal logical syntax will organically fold to bound the state space’s innate topology—achieving true, self-transcendence.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="synthetic-relativity-versus-situation-calculus-versus-glb" class="level2">
+<h2 class="anchored" data-anchor-id="synthetic-relativity-versus-situation-calculus-versus-glb">Synthetic Relativity versus Situation Calculus versus GLB</h2>
+<div class="shrink55">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 31%">
+<col style="width: 32%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;"><em>Synthetic Relativity (R-DTLF)</em></th>
+<th style="text-align: left;"><em>Situation Calculus (BATs/SSAs) <span class="math inline">\(+\)</span> variants of <span class="math inline">\(\mu\)</span>-calculus</em></th>
+<th style="text-align: left;"><em>Bimodal Provability logic (GLB)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>Modalities</em></td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{RDo}\)</span>, <span class="math inline">\(\mathrm{ODo}\)</span> &amp; <span class="math inline">\(\mathrm{PDo}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{PDo}\)</span>, <span class="math inline">\(\langle a \rangle \phi\)</span> (possibility), <span class="math inline">\([a] \phi\)</span> (necessity)</td>
+<td style="text-align: left;"><span class="math inline">\(\Box\)</span>, <span class="math inline">\(\Box_\omega\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Ordering</em></td>
+<td style="text-align: left;">Sequences of finite Posets, non-unique predecessors, non-well ordered</td>
+<td style="text-align: left;">Successor function, Unique predecessors, non-well ordered</td>
+<td style="text-align: left;">Transfinite ordinality: limits, Non-unique predecessors, well-ordered</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>Completeness?</em></td>
+<td style="text-align: left;">Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel’s incompleteness).</td>
+<td style="text-align: left;">Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel’s incompleteness).</td>
+<td style="text-align: left;">Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Other</em></td>
+<td style="text-align: left;">Algebraic compactness. Kleene’s Realizability &amp; BHK (Brouwer-Heyting-Kolmogorov) Interpretation.</td>
+<td style="text-align: left;">Regression Theorem (solves the frame problem). Fixpoint Semantics &amp; Knaster-Tarski Theorem.</td>
+<td style="text-align: left;">Japaridze’s Arithmetical Completeness Theorem. Löb’s Theorem &amp; Well-founded Kripke Semantics.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/adrianpearce\.github\.io\/synthetic-relativity\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Abstract">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Abstract</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix.html" class="pagination-link" aria-label="Appendix">
+        <span class="nav-page-text"><span class="chapter-title">Appendix</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
