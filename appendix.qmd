@@ -3,17 +3,6 @@ title: "Appendix "
 show-answers: true
 ---
 
-::: {.content-visible when-profile="book"}
-
-## Slides
-
-This module is also available in the following versions
-
-- [slides (html)](slides/appendix.html)
-- [slides (pdf)](pdfs/appendix.pdf)
-
-:::
-
 # Appendix
 
 ## Synthetic Relativity versus Situation Calculus versus GLB

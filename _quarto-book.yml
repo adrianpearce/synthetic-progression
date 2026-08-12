@@ -6,8 +6,6 @@ project:
     navigate: true
 
 resources:
-  - slides
-  - pdf
   - robots.txt
 
 book:
@@ -15,9 +13,9 @@ book:
   author: "Adrian R. Pearce"
   chapters:
     - index.qmd
-    - talk.qmd
+    - book.qmd
     - appendix.qmd
-  site-url: https://adrianpearce.github.io/synthetic-relativity/
+  site-url: https://adrianpearce.github.io/synthetic-progression/
 
 format:
   html:

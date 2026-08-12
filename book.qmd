@@ -3,17 +3,6 @@ title: "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Log
 show-answers: true
 ---
 
-::: {.content-visible when-profile="book"}
-
-## Slides
-
-This module is also available in the following versions
-
-- [slides (html)](slides/talk.html)
-- [slides (pdf)](pdfs/talk.pdf)
-
-:::
-
 # Talk Introduction
 
 ## Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer 
