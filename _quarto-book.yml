@@ -9,7 +9,7 @@ resources:
   - robots.txt
 
 book:
-  title: "Synthetic Relativity"
+  title: "Synthetic Progression"
   author: "Adrian R. Pearce"
   chapters:
     - index.qmd

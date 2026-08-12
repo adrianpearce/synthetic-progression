@@ -1,5 +1,5 @@
 ---
-title: "Abstract"
+title: "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer"
 author: 
   - name: Adrian R. Pearce
     email: adrianrp@unimelb.edu.au
