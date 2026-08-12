@@ -13,8 +13,6 @@ book:
   author: "Adrian R. Pearce"
   chapters:
     - index.qmd
-    - book.qmd
-    - appendix.qmd
   site-url: https://adrianpearce.github.io/synthetic-progression/
 
 format:
