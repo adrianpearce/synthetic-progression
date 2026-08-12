@@ -19,7 +19,6 @@ affiliations:
     postal-code: 3010
 ---
 
-
 # Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer
 
 ## Author
