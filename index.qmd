@@ -21,12 +21,9 @@ affiliations:
 
 # Synthetic relativity and relativistic progression
  
-
-## Author
-
-Professor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne
-
 ## Abstract
+
+## Introduction
 
 # The situation calculus
 
