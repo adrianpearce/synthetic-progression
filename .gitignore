@@ -22,3 +22,5 @@ save.yml
 1
 @
 figs/*:Zone.Identifier
+
+**/*.quarto_ipynb
