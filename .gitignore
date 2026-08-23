@@ -19,6 +19,7 @@ save.yml
 /figs/*.nav
 *.bak
 *.swp
+*~
 1
 @
 figs/*:Zone.Identifier
