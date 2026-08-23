@@ -3,6 +3,9 @@ project:
   preview:
     browser: true
 
+website:
+  site-url: "https://adrianpearce.github.io/synthetic-progression/"
+
 execute:
   freeze: auto
   cache: true
