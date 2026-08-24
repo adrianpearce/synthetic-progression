@@ -50,3 +50,14 @@ Then edit eacy *.svg and remove "fill.*100%" lines if you wish image to be trans
 ## Other (video processing not contained in this repo)
 
 ffmpeg -i /mnt/c/Users/adria/Videos/file.mp4 -filter:v "setpts=0.94*PTS" -filter:a "atempo=1.063829787" /mnt/c/Users/adria/Videos/file_fast.mp4
+
+## Github (good practice with multiple editors):
+
+An ideal order of commands for integrating work when others are also editing the github:
+
+git status
+git add .
+git commit -m "comment of what you are commiting and why"
+git pull --rebase
+git push
+
