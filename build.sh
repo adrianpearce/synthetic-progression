@@ -15,8 +15,10 @@ cd "$SCRIPT_DIR"
 # quarto render --profile slides
 
 # echo "==> Running DeckTape batch"
-# ./batch-decktape-parallel.sh "$PREFIX"
+# ./batch-decktape-parallel.sh "$PREFIX" || true
 
 echo "==> Publishing book"
 quarto publish --profile book gh-pages --no-prompt 
+
+xdg-open "https://comp90054.github.io/synthetic-progression/"
 
