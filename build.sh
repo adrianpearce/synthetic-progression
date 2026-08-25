@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # echo "==> Rendering book"
-# quarto render --profile book
+quarto render --profile book
 
 # echo "==> Rendering slides"
 # quarto render --profile slides
@@ -20,5 +20,5 @@ cd "$SCRIPT_DIR"
 echo "==> Publishing book"
 quarto publish --profile book gh-pages --no-prompt 
 
-xdg-open "https://comp90054.github.io/synthetic-progression/"
+xdg-open "https://adrianpearce.github.io/synthetic-progression/"
 
