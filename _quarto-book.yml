@@ -1,5 +1,5 @@
 project:
-  type: book
+  type: default
   preview:
     browser: true
     watch-inputs: true
@@ -8,20 +8,11 @@ project:
 resources:
   - robots.txt
 
-book:
-  title: "Synthetic Progression"
-  author: "Adrian R. Pearce"
-  chapters:
-    - index.qmd
-
 format:
   html:
     smooth-scroll: true
     html-math-method: mathjax
     theme: cosmo
-    css: book.css     # overrides live here
-    toc: true
-    toc-location: left      # “mini-book” feel in one page
-    toc-depth: 1
+    css: book.css
+    toc: false
     number-sections: false
-

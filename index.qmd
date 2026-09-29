@@ -1,5 +1,5 @@
 ---
-title: "Synthetic relativity and relativistic progression"
+title: "Overcoming Infinite Contexts in Action Theories via Synthetic Relativity and Realization"
 author: 
   - name: Adrian R. Pearce
     email: adrianrp@unimelb.edu.au
@@ -19,17 +19,15 @@ affiliations:
     postal-code: 3010
 ---
 
-# Synthetic relativity and relativistic progression
+# Introduction
+
+## The problem
+
+
+# Background
  
-## Abstract
 
-## Introduction
-
-# The situation calculus
-
-# Something ele
-
-## The situation calculus (Towers of Hanoi)
+## The situation calculus (Adapt from Towers of Hanoi to Bubble Sort)
 
 ::: {.columns}
 ::: {.column width="40%"}
@@ -38,11 +36,9 @@ affiliations:
 ::: {.column width="60%"}
 ::: {.shrink75}
 
-<div style="margin-top: 0.6em;"></div>
 
 [Fluents:]{style="color:blue"} $\mathit{OnPeg}(d, p, s)$
 
-<div style="margin-top: 0.1em;"></div>
 
 [*Initial Situation:*]{style="color:blue"}
 
@@ -56,7 +52,6 @@ $$
 
 [*Actions:*]{style="color:blue"} $move(d, p_{from}, p_{to})$
 
-<div style="margin-top: 1.0em;"></div>
 
 [*Goal:*]{style="color:blue"} All disks on $Peg_3$.
 
@@ -98,7 +93,6 @@ $$
 
 Let $\mathcal{A}$ be actions and $\mathcal{S}$ be the universe of situations. Define a monotonic operator $\Gamma$:
 $$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
-<div style="margin-top: -0.3em;"></div>
 
 From the **Second-Order Induction Axiom**:
 
@@ -113,7 +107,6 @@ From the **Second-Order Induction Axiom**:
 ::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
 The intersection of all **pre-fixed** points of a monotonic operator yields its **least fixpoint**. 
 
-<div style="margin-top: -0.5em;"></div>
 
 Therefore, the Second-Order Induction Axiom rigorously enforces 
 
@@ -131,13 +124,11 @@ $$\mathcal{S} = \mu X.\Gamma(X)$$
 $$\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup {\color{blue}{\mathcal{D}_{Poss}}} \cup {\color{blue}{\mathcal{D}_{SSA}}} \cup \mathcal{D}_{UNA}$$
 
 * $\color{blue}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
-<div style="margin-top: -0.8em;"></div>
   $$
   Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
   $$
   one for each primitive action $A$.
 
-<div style="margin-top: -0.8em;"></div>
 
 $$
 \begin{align*}
@@ -159,36 +150,28 @@ $$
 
 1. Positive effect axioms:
 
-<div style="margin-top: -1.1em;"></div>
 $$
 \exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
 
 2. Negative effect axioms:
 
-<div style="margin-top: -1.1em;"></div>
 $$
 \exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
 
 3. Frame axioms:
 
-<div style="margin-top: -1.1em;"></div>
 $$
 OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
 
 4. Completeness assumption ([explanation closure]{style="color:blue"}):
 
-<div style="margin-top: -1.1em;"></div>
 $$
 \neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
 $$
 
-<div style="margin-top: -0.8em;"></div>
 
 $\color{blue}{\mathcal{D}_{ssa}}$ $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
 
@@ -203,14 +186,11 @@ $\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and
 $\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
 
 The <span style="color:blue;">successor state axiom</span> solution has the following form:
-<div style="margin-top: -0.8em;"></div>
 $$
 \color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
 $$
-<div style="margin-top: -0.8em;"></div>
 
 In our example:
-<div style="margin-top: -0.8em;"></div>
 $$
 \begin{align*}
 \gamma_{OnPeg}^+(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
@@ -234,48 +214,38 @@ $$
 
 The **regression operator** ($\mathcal{R}$) evaluates a query about a future state by pushing it backward in time. 
 
-<div style="margin-top: -1.3em;"></div>
 
 $$
 \mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s)
 $$
 
-<div style="margin-top: -0.6em;"></div>
 
 [*For Example: is $D_2$ on $Peg_2$ after we move $D_1$ from $Peg_1$ to $Peg_2$?*]{style="color:blue"}
 
-<div style="margin-top: 0.5em;"></div>
 
 **1. Apply $\mathcal{R}$ to the query:**
-<div style="margin-top: -0.5em;"></div>
 $$
 \mathcal{R}[\, OnPeg(D_2, Peg_2, do({\color{red}{move(D_1, Peg_1, Peg_2)}}, S_0)) \,]
 $$
-<div style="margin-top: -0.5em;"></div>
 
 **2. Syntactic substitution (using our SSA):**
-<div style="margin-top: -0.5em;"></div>
 $$
 \begin{align*}
 \equiv \;& [\exists p_{from} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, p_{from}, Peg_2))] \lor \\
 & {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg [\exists p_{to} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, Peg_2, p_{to}))]
 \end{align*}
 $$
-<div style="margin-top: -0.5em;"></div>
 
 **3. Evaluate using Foundational Axioms ($\mathcal{D}_{una}$):**
 Because our Unique Names Axioms explicitly state $D_1 \neq D_2$, both action equivalences mathematically evaluate to $False$:
 
-<div style="margin-top: -0.5em;"></div>
 
 $$
 \equiv \mathrm{False} \lor {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg \mathrm{False}
 $$
 
-<div style="margin-top: -1.0em;"></div>
 
 **4. Logical Result:**
-<div style="margin-top: -1.0em;"></div>
 $$
 \equiv {\color{blue}{OnPeg(D_2, Peg_2, S_0)}}
 $$
@@ -303,11 +273,9 @@ Property persistence in the situation calculus captures a condition $\phi$ that 
 
 [Kelly & Pearce AIJ 2010] define this as the **Persistence operator** ($\mathcal{P}$):
 
-<div style="margin-top: -0.8em;"></div>
 
 $$ \mathcal{P}(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathcal{R}[\, Z(do(a, s)) \,] \big) $$
 
-<div style="margin-top: -0.8em;"></div>
 
 [Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the second-order induction axiom.]{style="color:blue"}
 
@@ -364,20 +332,16 @@ In Category Theory, **Stone Duality** dictates an duality between Syntax (logica
 
 ![](figs/towers2_sharpened_transparent.png){height=8% width=8% fig-align="center"}
 
-<div style="margin-top: -1.2em;"></div>
 
 ::: {.shrink75}
 
 IF we observe the *relative movement* of the smallest disk $D_1$ (alternating moves with $D_2$ or $D_3$) on $\mathit{OnPeg}(d,p,s)$: 
-<div style="margin-top: -0.6em;"></div>
 $$ \Delta p \equiv (p_{to} - p_{from}) \pmod 3 $$
 
 **1. The Coalgebraic Stream:** Solving the puzzle generates an infinite stream of spatial jumps: 
-<div style="margin-top: -0.6em;"></div>
 $$ \langle +2 \rangle, \langle -1 \rangle, \langle -1 \rangle, \langle +2 \rangle \dots $$
 
 **2. The Coinductive Proposal:** We propose an idealised Greatest Fixpoint where the disk *always* cycles left:
-<div style="margin-top: -0.6em;"></div>
 $$ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z $$
 
 :::
@@ -389,10 +353,8 @@ $$ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z $$
 **3. The Coinductive Step (Bisimulation):** 
 Following $+2$, the stream outputs a jump of $-1$. [How does our *proposed invariant* survive this paradox?]{style="color:blue"}
 
-<div style="margin-top: 0.3em;"></div>
 
 To satisfy the local coinductive check, the logic evaluates the domain's geometry. It formally recognises that jumping right twice ($+2$) is structurally indistinguishable from jumping left once ($-1$). It applies this coinductive equivalence:
-<div style="margin-top: -0.6em;"></div>
 $$ \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi $$
 
 **4. The Stone Duality Resolution:**
@@ -428,14 +390,12 @@ The space is governed by three interacting modalities.
 *   **${\color{blue}{\mathrm{ODo}}}$ (The Master Problem / Semantics): The Limit/Creator Modality ($\Box_2$)**
     The semantic evaluator and *interval invariant*. 
 
-<div style="margin-top: -0.3em;"></div>
 
 *Performs topological closure—evaluating the directed set generated by $\mathrm{RDo}$ and snapping it into a discrete, continuous limit.*
 
 *   **${\color{blue}{\mathrm{PDo}}}$ (Autonomous Progression): The Dynamic Transition Functor ($\Box_3$)**
     The transition modality that governs the forward evolution of the system. 
 
-<div style="margin-top: -0.3em;"></div>
 
 *Mathematically, it acts as an endofunctor within the Total Category, orchestrating the step-by-step recursive interaction (categorical adjunction) of local syntax ($\mathrm{RDo}$) and global semantics ($\mathrm{ODo}$) relative to $S_f$.*
 
@@ -452,7 +412,6 @@ The Dynamic Transition Functor ($\mathrm{PDo}$) governs the autonomous progressi
   $$ \Sigma_{n+1} = \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_{n+1}, S_r^{(n)}\big),\; \mathrm{ODo}\big(O_{n+1}, S_o^{(n)}\big),\; S_f \,\Big) $$
 :::
 
-<div style="margin-top: -0.2em;"></div>
 
 ## Constructive Accumulation (continued)
 
@@ -461,9 +420,7 @@ The Dynamic Transition Functor ($\mathrm{PDo}$) governs the autonomous progressi
 Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:
 
 $$ \mathrm{PDo}(S_r, S_o, S_f) $$
-<div style="margin-top: -0.6em;"></div>
 $$ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) $$
-<div style="margin-top: -0.8em;"></div>
 $$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \dots \mathit{etc.} $$
 
 *"Relative to reference frame $S_f$, the accumulation of inductive evidence $\mathrm{RDo}$ yields the coinductively realised semantic limit $\mathrm{ODo}$."*
@@ -474,16 +431,13 @@ $$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \math
 ::: {.callout-note icon=false title="Theorem I: Semantic Realisation"}
 **Semantic Realisation** is the mathematical state where syntax and semantics converge. Because the logic builds upon finite, verifiable observables, autonomous progression halts when the topology reaches Algebraic Compactness:
 
-<div style="margin-top: -0.8em;"></div>
 
 $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right) $$
 
-<div style="margin-top: -1.1em;"></div>
 
 - **$\bigsqcup \mathrm{RDo}$ (Syntax):** [By induction builds a raw chain of evidence from the ground up.]{style="color:blue"}
 - **$\mathrm{ODo}$ (Semantics):** [The top-down evaluator reads the syntax trace and evaluates its truth value.]{style="color:blue"}
 
-<div style="margin-top: -1.0em;"></div>
 
 **Proof Sketch:** Corresponds to the computation of the **Kleene Fixed-Point Theorem** $+$ **Algebraic Compactness** (next slide).
 
@@ -500,16 +454,13 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 
 :::
 
-<div style="margin-top: -0.4em;"></div>
 
 ::: {.callout-note icon=false title="Theorem II: Algebraic Compactness"}
 Because **Theorem I (Semantic Realisation)** formally computes a categorical *bilimit*, the system achieves algebraic compactness. [At convergence, the initial algebra of the dynamic transition functor coincides with its final coalgebra:]{style="color:blue"}
 
-<div style="margin-top: -0.6em;"></div>
 
 $$ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) $$
 
-<div style="margin-top: -0.6em;"></div>
 
 *The active inductive trace ($\mu$) strictly fulfills the persistent semantic invariant ($\nu$).*
 :::
@@ -521,7 +472,6 @@ Once Realisation is achieved, the relativistic reference frame mathematically sh
 
 $$ \mathrm{PDo}(N, {\color{blue}{O}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{O}}) $$
 
-<div style="margin-top: -0.7em;"></div>
 
 *   **Left Side:** The realised state computed within the initial reference frame ($S_f$).
 *   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and categorical Change of Base).
@@ -537,11 +487,9 @@ $$ \mathrm{PDo}(N, {\color{blue}{O}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\
 **1. Local Unrolling (Building the Situation Trace):** 
 The logic recursively accumulates primitive actions [(moving disks)]{style="color:blue"}, generating the topological equivalent of a nested $do()$ sequence:
 
-<div style="margin-top: -0.8em;"></div>
 
 $$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big({\color{blue}{\text{move}(D_1, P_2)}}, \dots S_f\big),\; \mathrm{ODo}\big(O_{\text{target}}, \text{Goal}\big),\; S_f \,\Big) $$
 
-<div style="margin-top: -0.8em;"></div>
 
 **2. Limit Catching:** 
 Through top-down semantic reflection ($\Box_2$), the $\mathrm{ODo}$ modality mathematically coinduces a structural property of the optimal traces: [The Parity Invariant ($O_{\text{parity}}$).]{style="color:blue"}
@@ -550,11 +498,9 @@ Through top-down semantic reflection ($\Box_2$), the $\mathrm{ODo}$ modality mat
 **3. The Synthetic Transformation (Change of Base):** 
 The Transformation Axiom fires, executing a categorical Change of Base:
 
-<div style="margin-top: -0.6em;"></div>
 
 $$ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathrm{O_{\text{parity}}}}}) $$
 
-<div style="margin-top: -0.8em;"></div>
 
 The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, strictly positive proof path through the state space.
 
@@ -570,11 +516,9 @@ The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, 
 ::: {.shrink60}
 We ground our system in Abramsky’s **DTLF** (1991) based on an **intuitionistic** construction of truth, since we require a logic that fuses [classical (inductive) logic with intuitionistic (coinductive) logic]{style="color:blue"}. DTLF formulas represent observable properties as they unfold, and because the system can only assert what it can finitely verify, the baseline syntax is strictly positive.
 
-<div style="margin-top: -0.3em;"></div>
 
 $$ \phi, \psi  ::=  \top  \mid  \bot  \mid  \phi \land \psi  \mid  \phi \lor \psi  \mid  \text{Constructors}(\phi) $$
 
-<div style="margin-top: -0.8em;"></div>
 
 * **$X, Y$ (Variables):** Placeholders used to define recursive logical properties.
 * **$\top$ (True / Top):** The trivial observation (a valid transition occurred). **$\bot$ (False / Falsum):** The null observation (a paradox occurred)---The baseline ignorance from which new inductive proofs begin.
@@ -593,27 +537,21 @@ We can now express our hypothesis for the Towers of Hanoi in DTLF.
 
 [*We co-induce an idealised invariant in DTLF where the smallest disk flawlessly cycles one peg to the left ($-1$) forever.* ]{style="color:blue"}
 
-<div style="margin-top: 0.5em;"></div>
 
 **1. Proposing the Idealised Rule:**
 We propose this property as our Greatest Fixpoint:
-<div style="margin-top: -0.8em;"></div>
 $$
 ParityInvariant \equiv \nu X.\ \langle -1 \rangle X
 $$
-<div style="margin-top: -0.8em;"></div>
 
 **2. The Reality:**
 However, the puzzle generates a stream that forces a forward jump of $+2$ from $Peg_1$ back to $Peg_3$. The observable bounds are:
-<div style="margin-top: -0.8em;"></div>
 $$
 Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 $$
-<div style="margin-top: -0.7em;"></div>
 
 **3. Syntactic Bisimulation Equivalence:**
 Because the topological futures of $+2$ and $-1$ land on the identical peg, we apply our syntactic equivalence ($\langle +2 \rangle \phi \equiv \langle -1 \rangle \phi$). This cleanly collapses the stream into our idealised property:
-<div style="margin-top: -0.6em;"></div>
 $$
 \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X) \;\equiv\; \nu X.\ \langle -1 \rangle X
 $$
@@ -762,7 +700,6 @@ Because our inductive trace is built purely on these observable primitives, its 
 
 ::: {.shrink65}
 
-<div style="margin-top: -0.5em;"></div>
 
 - **Next Steps:** Formalising the Beck-Chevalley boundary conditions required to ensure seamless quantifier preservation ($\forall, \exists$) when the system mathematically synthesises higher-order subproblems.
 
