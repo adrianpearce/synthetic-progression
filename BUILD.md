@@ -3,7 +3,7 @@
 
 quarto render --profile slides
 
-quarto render --profile book
+quarto render --profile article (or book)
 
 Scripts:
 ./batch_decktape.sh <optional argument of which file to process>
