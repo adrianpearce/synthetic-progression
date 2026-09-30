@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-f20a848dfad8419ae98221adb42eacb3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-3b1373ac54634257652051304ad40068.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -76,10 +76,98 @@ window.Quarto = {
 <link rel="stylesheet" href="book.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The problem</a></li>
+  </ul></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#the-situation-calculus-adapt-from-towers-of-hanoi-to-bubble-sort" id="toc-the-situation-calculus-adapt-from-towers-of-hanoi-to-bubble-sort" class="nav-link" data-scroll-target="#the-situation-calculus-adapt-from-towers-of-hanoi-to-bubble-sort">The situation calculus (Adapt from Towers of Hanoi to Bubble Sort)</a></li>
+  <li><a href="#reiters-induction-axiom" id="toc-reiters-induction-axiom" class="nav-link" data-scroll-target="#reiters-induction-axiom">Reiter’s Induction Axiom</a></li>
+  <li><a href="#situations-actions" id="toc-situations-actions" class="nav-link" data-scroll-target="#situations-actions">Situations &amp; Actions</a></li>
+  <li><a href="#situations-as-a-least-fixpoint" id="toc-situations-as-a-least-fixpoint" class="nav-link" data-scroll-target="#situations-as-a-least-fixpoint">Situations as a Least Fixpoint</a></li>
+  <li><a href="#situations-as-a-least-fixpoint-continued" id="toc-situations-as-a-least-fixpoint-continued" class="nav-link" data-scroll-target="#situations-as-a-least-fixpoint-continued">Situations as a Least Fixpoint (continued)</a></li>
+  <li><a href="#syntactic-transformation-to-first-order-logic" id="toc-syntactic-transformation-to-first-order-logic" class="nav-link" data-scroll-target="#syntactic-transformation-to-first-order-logic">Syntactic transformation to First Order Logic</a></li>
+  <li><a href="#a-solution-to-the-frame-problem-sometimes-reiter-91" id="toc-a-solution-to-the-frame-problem-sometimes-reiter-91" class="nav-link" data-scroll-target="#a-solution-to-the-frame-problem-sometimes-reiter-91">A solution to the frame problem (<span style="color:blue">sometimes</span>) [Reiter 91]</a></li>
+  <li><a href="#successor-state-axioms" id="toc-successor-state-axioms" class="nav-link" data-scroll-target="#successor-state-axioms">Successor State Axioms</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
+  <li><a href="#foundational-limitations-of-least-fixpoints" id="toc-foundational-limitations-of-least-fixpoints" class="nav-link" data-scroll-target="#foundational-limitations-of-least-fixpoints">Foundational Limitations of Least Fixpoints?</a></li>
+  <li><a href="#property-persistence-as-a-greatest-fixpoint" id="toc-property-persistence-as-a-greatest-fixpoint" class="nav-link" data-scroll-target="#property-persistence-as-a-greatest-fixpoint">Property Persistence as a Greatest Fixpoint</a></li>
+  </ul></li>
+  <li><a href="#category-theory" id="toc-category-theory" class="nav-link" data-scroll-target="#category-theory">Category Theory</a>
+  <ul class="collapse">
+  <li><a href="#the-dual-problems-algebras-coalgebras" id="toc-the-dual-problems-algebras-coalgebras" class="nav-link" data-scroll-target="#the-dual-problems-algebras-coalgebras">The Dual Problems: Algebras &amp; Coalgebras</a></li>
+  <li><a href="#categorical-proof-techniques-coinduction-stone-duality" id="toc-categorical-proof-techniques-coinduction-stone-duality" class="nav-link" data-scroll-target="#categorical-proof-techniques-coinduction-stone-duality">Categorical Proof Techniques: Coinduction &amp; Stone Duality</a></li>
+  <li><a href="#example-coinduction-in-towers-of-hanoi" id="toc-example-coinduction-in-towers-of-hanoi" class="nav-link" data-scroll-target="#example-coinduction-in-towers-of-hanoi">Example: Coinduction in Towers of Hanoi</a></li>
+  <li><a href="#example-coinduction-in-towers-of-hanoi-continued" id="toc-example-coinduction-in-towers-of-hanoi-continued" class="nav-link" data-scroll-target="#example-coinduction-in-towers-of-hanoi-continued">Example: Coinduction in Towers of Hanoi (Continued)</a></li>
+  </ul></li>
+  <li><a href="#synthetic-relativity-axioms" id="toc-synthetic-relativity-axioms" class="nav-link" data-scroll-target="#synthetic-relativity-axioms">Synthetic relativity axioms</a>
+  <ul class="collapse">
+  <li><a href="#tri-modality-ternary-representation" id="toc-tri-modality-ternary-representation" class="nav-link" data-scroll-target="#tri-modality-ternary-representation">Tri-modality &amp; ternary representation</a></li>
+  <li><a href="#synthetic-relativity-axioms-1" id="toc-synthetic-relativity-axioms-1" class="nav-link" data-scroll-target="#synthetic-relativity-axioms-1">Synthetic Relativity Axioms</a></li>
+  <li><a href="#constructive-accumulation" id="toc-constructive-accumulation" class="nav-link" data-scroll-target="#constructive-accumulation">Constructive Accumulation</a></li>
+  <li><a href="#constructive-accumulation-continued" id="toc-constructive-accumulation-continued" class="nav-link" data-scroll-target="#constructive-accumulation-continued">Constructive Accumulation (continued)</a></li>
+  <li><a href="#semantic-realisation" id="toc-semantic-realisation" class="nav-link" data-scroll-target="#semantic-realisation">Semantic Realisation</a></li>
+  <li><a href="#the-dual-fixpoints-algebraic-compactness" id="toc-the-dual-fixpoints-algebraic-compactness" class="nav-link" data-scroll-target="#the-dual-fixpoints-algebraic-compactness">The Dual Fixpoints: Algebraic Compactness</a></li>
+  <li><a href="#the-synthetic-transformation" id="toc-the-synthetic-transformation" class="nav-link" data-scroll-target="#the-synthetic-transformation">The Synthetic Transformation</a></li>
+  <li><a href="#towers-of-hanoi-example" id="toc-towers-of-hanoi-example" class="nav-link" data-scroll-target="#towers-of-hanoi-example">Towers of Hanoi example</a></li>
+  </ul></li>
+  <li><a href="#relativistic-domain-theory-in-logical-form-r-dtlf" id="toc-relativistic-domain-theory-in-logical-form-r-dtlf" class="nav-link" data-scroll-target="#relativistic-domain-theory-in-logical-form-r-dtlf">Relativistic Domain Theory in Logical Form (R-DTLF)</a>
+  <ul class="collapse">
+  <li><a href="#dtlf-logical-primitivesno-negation-or-implication" id="toc-dtlf-logical-primitivesno-negation-or-implication" class="nav-link" data-scroll-target="#dtlf-logical-primitivesno-negation-or-implication">DTLF Logical Primitives—No negation or implication</a></li>
+  <li><a href="#example-computing-the-hanoi-parity-invariant" id="toc-example-computing-the-hanoi-parity-invariant" class="nav-link" data-scroll-target="#example-computing-the-hanoi-parity-invariant">Example: Computing the Hanoi Parity Invariant</a></li>
+  <li><a href="#spatial-completeness-the-static-limitation-r-dtlf" id="toc-spatial-completeness-the-static-limitation-r-dtlf" class="nav-link" data-scroll-target="#spatial-completeness-the-static-limitation-r-dtlf">Spatial Completeness &amp; The Static Limitation: R-DTLF</a></li>
+  <li><a href="#compilation-into-ssas-topological-booleanization" id="toc-compilation-into-ssas-topological-booleanization" class="nav-link" data-scroll-target="#compilation-into-ssas-topological-booleanization">Compilation into SSAs &amp; Topological Booleanization</a></li>
+  <li><a href="#compilation-into-ssas-topological-booleanization-contd" id="toc-compilation-into-ssas-topological-booleanization-contd" class="nav-link" data-scroll-target="#compilation-into-ssas-topological-booleanization-contd">Compilation into SSAs &amp; Topological Booleanization (cont’d)</a></li>
+  <li><a href="#updated-towers-of-hanoi-poss-ssa" id="toc-updated-towers-of-hanoi-poss-ssa" class="nav-link" data-scroll-target="#updated-towers-of-hanoi-poss-ssa">Updated Towers of Hanoi Poss &amp; SSA:</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1">Conclusion</a></li>
+  </ul></li>
+  <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work">Related Work</a>
+  <ul class="collapse">
+  <li><a href="#related-work-1" id="toc-related-work-1" class="nav-link" data-scroll-target="#related-work-1">Related Work</a></li>
+  <li><a href="#related-work-continued" id="toc-related-work-continued" class="nav-link" data-scroll-target="#related-work-continued">Related Work (continued)</a></li>
+  </ul></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a>
+  <ul class="collapse">
+  <li><a href="#future-work-formalising-relativistic-invariance" id="toc-future-work-formalising-relativistic-invariance" class="nav-link" data-scroll-target="#future-work-formalising-relativistic-invariance">Future Work: Formalising Relativistic Invariance</a></li>
+  <li><a href="#self-transcending-theory-driven-generalisation" id="toc-self-transcending-theory-driven-generalisation" class="nav-link" data-scroll-target="#self-transcending-theory-driven-generalisation">Self-Transcending, Theory-Driven Generalisation</a></li>
+  <li><a href="#self-transcending-theory-driven-generalisation-contd" id="toc-self-transcending-theory-driven-generalisation-contd" class="nav-link" data-scroll-target="#self-transcending-theory-driven-generalisation-contd">Self-Transcending, Theory-Driven Generalisation (cont’d)</a></li>
+  <li><a href="#self-transcending-theory-driven-generalisation-contd-1" id="toc-self-transcending-theory-driven-generalisation-contd-1" class="nav-link" data-scroll-target="#self-transcending-theory-driven-generalisation-contd-1">Self-Transcending, Theory-Driven Generalisation (cont’d)</a></li>
+  <li><a href="#synthetic-relativity-versus-situation-calculus-versus-glb" id="toc-synthetic-relativity-versus-situation-calculus-versus-glb" class="nav-link" data-scroll-target="#synthetic-relativity-versus-situation-calculus-versus-glb">Synthetic Relativity versus Situation Calculus versus GLB</a></li>
+  </ul></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#synthetic-relativity-versus-situation-calculus-versus-glb-1" id="toc-synthetic-relativity-versus-situation-calculus-versus-glb-1" class="nav-link" data-scroll-target="#synthetic-relativity-versus-situation-calculus-versus-glb-1">Synthetic Relativity versus Situation Calculus versus GLB</a></li>
+  <li><a href="#theory-driven-generalization" id="toc-theory-driven-generalization" class="nav-link" data-scroll-target="#theory-driven-generalization">Theory-Driven Generalization</a></li>
+  <li><a href="#theory-driven-generalization-continued" id="toc-theory-driven-generalization-continued" class="nav-link" data-scroll-target="#theory-driven-generalization-continued">Theory-Driven Generalization (continued)</a></li>
+  <li><a href="#domain-theory-in-logical-form-dtlf" id="toc-domain-theory-in-logical-form-dtlf" class="nav-link" data-scroll-target="#domain-theory-in-logical-form-dtlf">Domain Theory in Logical Form (DTLF)</a></li>
+  <li><a href="#the-scott-domain" id="toc-the-scott-domain" class="nav-link" data-scroll-target="#the-scott-domain">The Scott Domain</a></li>
+  <li><a href="#spatial-completeness" id="toc-spatial-completeness" class="nav-link" data-scroll-target="#spatial-completeness">Spatial Completeness</a></li>
+  <li><a href="#the-core-philosophy" id="toc-the-core-philosophy" class="nav-link" data-scroll-target="#the-core-philosophy">The Core Philosophy</a></li>
+  <li><a href="#the-formal-syntax" id="toc-the-formal-syntax" class="nav-link" data-scroll-target="#the-formal-syntax">The Formal Syntax</a></li>
+  <li><a href="#the-engine-catching-limits" id="toc-the-engine-catching-limits" class="nav-link" data-scroll-target="#the-engine-catching-limits">The Engine &amp; Catching Limits</a></li>
+  <li><a href="#categorical-stone-duality-domain-theory-in-logical-form-dtlf-scott-topologies" id="toc-categorical-stone-duality-domain-theory-in-logical-form-dtlf-scott-topologies" class="nav-link" data-scroll-target="#categorical-stone-duality-domain-theory-in-logical-form-dtlf-scott-topologies">Categorical (Stone) duality: Domain Theory in Logical Form (DTLF) &amp; Scott topologies</a></li>
+  <li><a href="#dtlf-spaces-are-t_0-kolmogorov-spaces-why-it-is-non-hausdorff" id="toc-dtlf-spaces-are-t_0-kolmogorov-spaces-why-it-is-non-hausdorff" class="nav-link" data-scroll-target="#dtlf-spaces-are-t_0-kolmogorov-spaces-why-it-is-non-hausdorff">DTLF spaces are <span class="math inline">\(T_0\)</span> (Kolmogorov) spaces (Why it is non Hausdorff)</a></li>
+  <li><a href="#compactness-finite-observability" id="toc-compactness-finite-observability" class="nav-link" data-scroll-target="#compactness-finite-observability">Compactness &amp; finite observability</a></li>
+  <li><a href="#qualities-of-dtlf" id="toc-qualities-of-dtlf" class="nav-link" data-scroll-target="#qualities-of-dtlf">Qualities of DTLF</a></li>
+  <li><a href="#sequences-of-finite-posets-sfps-partial-ordering" id="toc-sequences-of-finite-posets-sfps-partial-ordering" class="nav-link" data-scroll-target="#sequences-of-finite-posets-sfps-partial-ordering">Sequences of Finite Posets (SFPs): Partial ordering</a></li>
+  <li><a href="#comparison-with-inductive-logic-programming-ilp" id="toc-comparison-with-inductive-logic-programming-ilp" class="nav-link" data-scroll-target="#comparison-with-inductive-logic-programming-ilp">Comparison with Inductive Logic Programming (ILP)</a></li>
+  <li><a href="#comparison-with-inductive-logic-programming-ilp-continued" id="toc-comparison-with-inductive-logic-programming-ilp-continued" class="nav-link" data-scroll-target="#comparison-with-inductive-logic-programming-ilp-continued">Comparison with Inductive Logic Programming (ILP) (continued)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">

@@ -12,7 +12,8 @@ format:
   html:
     smooth-scroll: true
     html-math-method: mathjax
-    theme: cosmo
+    # theme: cosmo
+    theme: litera
     css: book.css
-    toc: false
+    toc: true
     number-sections: false
