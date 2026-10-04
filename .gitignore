@@ -5,6 +5,7 @@ slides/
 appendix_files/
 index_files/
 _book/
+_manuscript/
 *_files/
 figs/*.aux
 figs/*.fdb_latexmk
