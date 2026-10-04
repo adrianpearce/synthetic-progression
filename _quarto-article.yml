@@ -1,5 +1,5 @@
 project:
-  type: default
+  type: manuscript
   preview:
     browser: true
     watch-inputs: true
