@@ -1,0 +1,66 @@
+Relativistic Theory Progression: Overcoming Infinite Contexts via Semantic Realization (Title)
+What I am going to say (the story):
+Introduction
+- The fundamental barrier
+- The SOTA coprimise (finite abstractions)
+- The static (BAT) bottleneck
+- The innovation: relativistic theory progression
+- The bridge: synthesis as verification
+The problem (background)
+- The Situation Calculus (Bubble sort)
+- Situations as Least Fixpoint
+- Syntactic transformation to First Order Logic
+- Reiter's Induction Axiom (Second order)
+- A solution to the frame problem (sometimes)
+- Successor State Axioms
+- Regression (but cannot handle infinite contexts)
+- Property persistence s Greatest Fixpoint (must shift from regression to progression)
+- Progression (but requires strictly second order logic)
+- Existential Second-Order Projection 
+  * Aspect 1: Epistemic Progression and Forgetting (unsensed fluents in online settings)
+    - Bubble sort example
+  * Aspect 2: Theory progression and structural vocabluary expansion (we generalise it to declare the existence of exapnded vocabulary)
+    - Quick sort (partition clause) sort example
+- computability Gap in Second-Order Specification
+- While second order project can specify progressed theory, it provides no computational mechanisem to finitely realize it.
+Say it (the story)
+- Category theory & semantic realization
+  * Shifting to topological semantics
+    - from standard syntactic logic to the semantics of topological space
+  *Domaain theory in Logcal Form (DTLF) and semantic realization.
+  * The dual problems: algebras & Coalgebras
+  * Coninduction & Stone duality 
+    - Example: coinduction of qsort
+- Domain theory in logical form (DTLF)
+- Synthetic relativity
+  * Tri-modality & ternary representation
+  * Synthetic relativity axioms 
+  * Constructive Accumulation
+    - Axiom 1: The Axom of Constructive Accumulation
+  * Semantic Realisation
+    - Theorem I: Semantic Realisation
+  * The dual fixpoints: algebraic compactness
+    - Theorem II: Algebraic Compactness (Termination proof)
+  * The synthetic transformation
+    - Axiom 2: The Asiom of Synthetic Transformation
+  * Qsort example (continued)
+- Relativistic domain theory in logical form (R-DTLF)
+  * Qsort example (continued)
+  * Spatial completeness & the static limitation: R-DTLF
+  * Compilation into SSAs & Topological Booleanization
+    - Theorem III: Topological Booleanization (Compiling SSAs) - Includes showing Decidability Proof
+Realisation
+  * Realisation has Markov property
+What I said (the story)
+Related work
+  * The hypercomputation near a black hole paper
+    - The Analytical Hierarchy (computational complexity of the overall problem)
+    - Theorem IV: Prove naive, unprogressed infinite context maps to the anlytical or Borel hierarchy
+-  Program synthesis
+  * Model checking via LTL/LDL * Bounded BAT theories
+-  DTLF (overview of contributions)
+Conclusion
+- Stadard situation calculus (induction) versus Synthetic relativity (R-DTLF & coinduction)
+  * Table comparing standard Situation Calculus (Induction / Static Base / Infinite Execution) versus Synthetic Relativity (Coinduction / Change of Base / Compact Realization)
+
+
