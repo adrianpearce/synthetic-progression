@@ -1,0 +1,5 @@
+/* book.css */
+
+section.level1, section.level2, h1, h2 {
+  border-bottom: none !important;
+}
