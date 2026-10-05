@@ -21,12 +21,6 @@ affiliations:
 
 # Introduction
 
-## The problem
-
-
-# Background
- 
-
 ## The situation calculus (Adapt from Towers of Hanoi to Bubble Sort)
 
 ::: {.columns}
