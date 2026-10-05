@@ -4,6 +4,10 @@ project:
     browser: true
     watch-inputs: true
     navigate: true
+  render:
+    - "*.qmd"       # Includes all your quarto documents
+    - "*.md"        # Includes other markdown files if you need them
+    - "!BUILD.md"   # Explicitly ignores BUILD.md
 
 resources:
   - robots.txt
@@ -17,3 +21,4 @@ format:
     css: article.css
     toc: true
     number-sections: false
+  

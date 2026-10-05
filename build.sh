@@ -8,8 +8,8 @@ PREFIX="${1:-}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# echo "==> Rendering book"
-quarto render --profile book
+# echo "==> Rendering manuscript"
+quarto render --profile manuscript
 
 # echo "==> Rendering slides"
 # quarto render --profile slides
@@ -17,8 +17,8 @@ quarto render --profile book
 # echo "==> Running DeckTape batch"
 # ./batch-decktape-parallel.sh "$PREFIX" || true
 
-echo "==> Publishing book"
-quarto publish --profile book gh-pages --no-prompt 
+echo "==> Publishing manuscript"
+quarto publish --profile manuscript gh-pages --no-prompt 
 
 xdg-open "https://adrianpearce.github.io/synthetic-progression/"
 
