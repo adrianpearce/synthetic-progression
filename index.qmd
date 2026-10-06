@@ -33,73 +33,537 @@ affiliations:
 
 # The problem (background)
 
-* The Situation Calculus (Bubble sort)
+## The Situation Calculus: Bounding a Sort
 
-* Situations as Least Fixpoint
+::: {.columns}
+::: {.column width="20%"}
+*Unsorted Sequence:*
 
-* Syntactic transformation to First Order Logic
+$[3, 1, 2, \dots ]$
+:::
+::: {.column width="80%"}
+
+[Fluents:]{style="color:black"} $\mathit{At}(v, i, s)$ *(Value $v$ is at index $i$ in situation $s$)*
+
+[*Initial Situation ($S_0$):*]{style="color:black"}
+
+$$
+\begin{align*}
+& \mathit{At}(3, 1, S_0) \land \\
+& \mathit{At}(1, 2, S_0) \land \\
+& \mathit{At}(2, 3, S_0) \land \\
+& \forall i > 3.\ \exists v.\ \mathit{At}(v, i, S_0)
+\end{align*}
+$$
+
+[*Actions:*]{style="color:black"} $\mathit{swap}(i, j)$
+
+[*Goal:*]{style="color:black"} 
+$\forall i, j.\ (i < j \implies \exists v_1, v_2.\ \mathit{At}(v_1, i, s) \land \mathit{At}(v_2, j, s) \land v_1 \le v_2)$
+
+:::
+:::
+
+
+
+
 
 * Reiter's Induction Axiom (Second order)
 
-* A solution to the frame problem (sometimes)
+::: {.callout-note icon=false title="The Foundational Induction Axiom: Second Order"}
 
-* Successor State Axioms
+  $$ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) $$
 
-* Regression (but cannot handle infinite contexts)
+- Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at $S_0$.
+- Establishes the situation domain as an *inductive* datatype.
+- Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.
+:::
 
-* Property persistence s Greatest Fixpoint (must shift from regression to progression)
+## Situations & Actions
 
-* Progression (but requires strictly second order logic)
+$$
+\begin{align*} 
+\mathit{Initial\;situation:}\;& S_0 \\  
+& do(\mathit{swap}(1, 2), S_0) \\ 
+do(\mathit{swap}(2, 3),\;& do(\mathit{swap}(1, 2), S_0)) \\ 
+& \ldots 
+\end{align*}
+$$
 
-* Existential Second-Order Projection 
+## Situations as Least Fixpoint
 
-# Aspect 1: Epistemic Progression and Forgetting (unsensed fluents in online settings)
+Let $\mathcal{A}$ be actions and $\mathcal{S}$ be the universe of situations. Define a monotonic operator $\Gamma$:
+$$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
 
-* Bubble sort example
+From the *Second-Order Induction Axiom*:
 
-# Aspect 2: Theory progression and structural vocabulary expansion (we generalise it to declare the existence of exapnded vocabulary)
+- *The Premise:* $P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))$ translates to $\Gamma(P) \subseteq P$. 
+  Here, $P$ is a *pre-fixed point* *(an over-approximation that obeys the rules, but may contain unreachable "junk" like ghost situations or disconnected time loops).*
+- *The Consequent:* $\forall s\,P(s)$ asserts that the true universe of situations $\mathcal{S}$ is a subset of $P$.
+- The axiom combines these, stating $\mathcal{S}$ is a subset of *every* valid pre-fixed point. Taking their intersection mathematically acts as a sieve, filtering out all the unshared, unreachable junk.
 
-* Quick sort (partition clause) sort example
+::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
+The intersection of all *pre-fixed* points of a monotonic operator yields its *least fixpoint*. 
 
-## Computability Gap in Second-Order Specification
 
-* While second order project can specify progressed theory, it provides no computational mechanism to finitely realize it.
+Therefore, the Second-Order Induction Axiom rigorously enforces 
 
-* Theorem IV: Prove naive, unprogressed infinite context maps to anlytical/Borel hierarchy
+$$\mathcal{S} = \mu X.\Gamma(X)$$
 
-## Category theory & topolligcal semantics (shifting to topological semantics)
+*Leaving only the pure, minimal valid tree.*
+:::
 
-  * The dual problems: algebras & Coalgebras
-  * Coinduction, stone duality 
-    - from standard syntactic logic to the semantics of topological space
 
-## Domain theory in Logcal Form (DTLF) 
-  * Example: coinduction of qsort
+## Syntactic transformation to First Order Logic
 
-## Synthetic relativity
+*Basic Action Theories* [Lin and Reiter 94] define Theory 
 
-  * Tri-modality & ternary representation
-  * Synthetic relativity axioms 
-  * Constructive Accumulation
-    - Axiom 1: The Axom of Constructive Accumulation
-  * Semantic Realisation
-    - Theorem I: Semantic Realisation
-  * The dual fixpoints: algebraic compactness
-    - Theorem II: Algebraic Compactness (Termination proof)
-  * The synthetic transformation
-    - Axiom 2: The Axiom of Synthetic Transformation
-  * Qsort example (continued)
+$$\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup {\color{black}{\mathcal{D}_{Poss}}} \cup {\color{black}{\mathcal{D}_{SSA}}} \cup \mathcal{D}_{UNA}$$
 
-## Relativistic domain theory in logical form (R-DTLF)
+* $\color{black}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
+  $$
+  Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
+  $$
+  one for each primitive action $A$.
 
-  * Qsort example (continued)
-  * Spatial completeness & the static limitation: R-DTLF
-  * Compilation into SSAs & Topological Booleanization
-    - Theorem III: Topological Booleanization (Compiling SSAs) - Includes showing Decidability Proof
+$$
+\begin{align*} 
+Poss(\mathit{swap}(i, j), s) \equiv \;& (j = i + 1) \land \\ 
+& \exists v_i, v_j \Big( \mathit{At}(v_i, i, s) \land \mathit{At}(v_j, j, s) \land (v_i > v_j) \Big) 
+\end{align*}
+$$
 
-## Realisation
 
-  * Realisation has Markov property
+## Successor State Axioms---A solution to the frame problem (sometimes)
+
+* $\color{black}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form $F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),$ one for each fluent $F$. 
+
+1. Positive effect axioms:
+
+$$
+\exists j \ \big((a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \land \mathit{At}(v, j, s)\big) \supset \mathit{At}(v, i, do(a, s))
+$$
+
+2. Negative effect axioms:
+
+$$
+\exists j \ (a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \supset \neg \mathit{At}(v, i, do(a, s))
+$$
+
+3. Frame axioms:
+
+$$
+\mathit{At}(v, i, s) \land \neg \exists j \ (a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \supset \mathit{At}(v, i, do(a, s))
+$$
+
+4. Completeness assumption ([explanation closure]{style="color:black"}):
+
+$$
+\neg \mathit{At}(v, i, s) \land \mathit{At}(v, i, do(a, s)) \supset \exists j \ \big((a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \land \mathit{At}(v, j, s)\big)
+$$
+
+$\color{black}{\mathcal{D}_{ssa}}$ $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:black"}
+
+## Successor State Axioms
+
+Suppose that for fluent $F(\vec{x}, s)$:  
+$\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and  
+$\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
+
+The <span style="color:blue;">successor state axiom</span> solution has the following form:
+$$
+\color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor \big( F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s) \big)}
+$$
+
+In our example:
+$$
+\begin{align*}
+\gamma_{\mathit{At}}^+(v, i, a, s) \;&\stackrel{\text{def}}{=}\; \exists j \ \big((a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \land \mathit{At}(v, j, s)\big) \\
+\gamma_{\mathit{At}}^-(v, i, a, s) \;&\stackrel{\text{def}}{=}\; \exists j \ (a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i))
+\end{align*}
+$$
+
+So successor state axiom is:
+
+$$
+\begin{align*}
+\mathit{At}(v, i, do(a, s)) \equiv \;& \Big[ \exists j \ \big((a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \land \mathit{At}(v, j, s)\big) \Big] \lor \\
+& \Big( \mathit{At}(v, i, s) \land \neg \big[ \exists j \ (a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \big] \Big)
+\end{align*}
+$$
+
+## Regression 
+
+The **regression operator** ($\mathcal{R}$) evaluates a query about a future state by pushing it backward in time. 
+
+$$
+\mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor \big( {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s) \big)
+$$
+
+[*For Example: is value $2$ at index $3$ after we swap indices $1$ and $2$?*]{style="color:blue"}
+
+**1. Apply $\mathcal{R}$ to the query:**
+$$
+\mathcal{R}[\, \mathit{At}(2, 3, do({\color{red}{\mathit{swap}(1, 2)}}, S_0)) \,]
+$$
+
+**2. Syntactic substitution (using our SSA):**
+$$
+\begin{align*}
+\equiv \;& \Big[ \exists j \ \big(({\color{red}{\mathit{swap}(1, 2)}} = \mathit{swap}(3, j) \lor {\color{red}{\mathit{swap}(1, 2)}} = \mathit{swap}(j, 3)) \land \mathit{At}(2, j, S_0)\big) \Big] \lor \\
+& {\color{blue}{\mathit{At}(2, 3, S_0)}} \land \neg \Big[ \exists j \ ({\color{red}{\mathit{swap}(1, 2)}} = \mathit{swap}(3, j) \lor {\color{red}{\mathit{swap}(1, 2)}} = \mathit{swap}(j, 3)) \Big]
+\end{align*}
+$$
+
+**3. Evaluate using Foundational Axioms ($\mathcal{D}_{una}$):**
+Because our Unique Names Axioms explicitly state that indices are distinct (i.e., $1 \neq 3$ and $2 \neq 3$), the action ${\color{red}{\mathit{swap}(1, 2)}}$ can never equal $\mathit{swap}(3, j)$ or $\mathit{swap}(j, 3)$ for any $j$. Therefore, the action equivalences mathematically evaluate to $False$:
+
+$$
+\equiv \mathrm{False} \lor {\color{blue}{\mathit{At}(2, 3, S_0)}} \land \neg \mathrm{False}
+$$
+
+**4. Logical Result:**
+$$
+\equiv {\color{blue}{\mathit{At}(2, 3, S_0)}}
+$$
+
+## The Breakdown of Explanation Closure
+
+The regression evaluation above succeeds exclusively because it operates within the finite, completely specified prefix of our sequence. However, standard progression relies entirely on the **Explanation Closure** assumption to solve the frame problem—the assumption that we can completely enumerate every action capable of changing a fluent. 
+
+When we attempt to evaluate a state transition in the infinite epistemic tail ($\forall i > 3.\ \exists v.\ \mathit{At}(v, i, S_0)$), this assumption shatters:
+
+*   To calculate $\mathit{At}(v, i, do(a, s))$ for an arbitrary index, the system must evaluate $\exists j$ across the entire domain.
+*   Because the domain is unbounded, the Explanation Closure assumption cannot be finitely grounded. The positive and negative effect axioms mathematically paralyze.
+
+Reiter's foundational progression solves the frame problem only *sometimes*
+—specifically, when the domain is strictly finite and closed. In open-world, infinite contexts, standard progression fails, exposing deeper architectural flaws in the underlying fixpoint semantics.
+
+## The Structural Limits of Inductive Histories (Least Fixpoints)
+
+While classical induction successfully builds a valid foundational history ($\mathcal{D}_{S_0}$), enforcing this rigid geometry creates severe structural limits for dynamically progressing systems:
+
+*   **Strict Tree Topology ([Unique Predecessors]{style="color:blue"}):** Distinct action histories never converge. Even if two different causal paths result in the exact same domain state, the logic traps them in isolated, non-Markovian parallel universes.
+*   **No Native State Equivalence ([The Quotienting Barrier]{style="color:blue"}):** Because states are strictly defined by their rigid *syntactic history* (the nested $do$ terms) rather than their *observational behaviour*, the topology cannot naturally "fold" or quotient identical states together. The agent cannot safely forget the past.
+*   **The Finiteness Barrier ([The Epistemic Trap]{style="color:blue"}):** By mathematical definition, a least fixpoint ($\mu$) only constructs strictly *finite* chains. It is fundamentally blind to unbounded, continuous processes, making it mathematically incompatible with infinite epistemic contexts.
+
+# Progression 
+
+## Property Persistence as a Greatest Fixpoint
+
+To overcome the finiteness barrier of inductive histories, we must shift our foundational perspective. Rather than calculating whether a specific state was reached via a finite bottom-up history (a least fixpoint, $\mu$), we evaluate whether a structural invariant survives infinitely into the future.
+
+Property persistence in the situation calculus captures a condition $\phi$ that holds *now* and is preserved after *any legal action* via regression ($\mathcal{R}$). [Kelly & Pearce AIJ 2010] define this as the **Persistence operator** ($\mathcal{P}$):
+
+$$ 
+\mathcal{P}(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathcal{R}[\, Z(do(a, s)) \,] \big) 
+$$
+
+[Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the second-order induction axiom.]{style="color:blue"}
+
+*   **Monotonic Transformation:** By wrapping the single-step regression operator $\mathcal{R}$ inside a monotonic formula transformer ($\mathcal{P}$), the infinite future can be mathematically evaluated back in the current state. 
+*   **The Shift to Coinduction:** While inductive structures are built bottom-up from $S_0$, invariant persistent structures are defined top-down by their ongoing observable behaviour, demanding a mathematical shift to coinduction.
+
+::: {.callout-note icon=false title="The Semantic Computability Gap: Greatest Fixpoints ($\nu Z$)"}
+- Property persistence is an infinite-horizon **safety property**.
+- The persistence condition is formally the **greatest fixpoint** of this operator: $\nu Z.\, \mathcal{P}(Z)$.
+- *The Syntactic Limit:* Regression natively builds finite, syntactic histories. To finitely realize this infinite fixpoint over an unbounded epistemic domain, standard syntactic logic shatters. We must step outside standard First/Second-Order action theories and shift our mathematical framework to the semantics of continuous topological space.
+:::
+
+## From Verification to Progression
+
+While the persistence operator ($\mathcal{P}$) mathematically identifies the greatest fixpoint, it functions strictly as a query evaluation mechanism. It does not update the foundational theory ($\mathcal{D}_{S_0}$) or truncate the infinite nested history. To achieve a Markov state and permanently forget the past, the system must undergo **Theory Progression**. 
+
+## Existential Second-Order Projection
+Classical progression (Lin and Reiter) achieves this by projecting the theory forward, using Existential Second-Order Logic to quantify over and discard the historical state. We apply this projection across two dimensions:
+
+### Aspect 1: Epistemic Progression and Forgetting
+
+To safely drop the history of our Bubble Sort execution and achieve a Markov state, classical progression (Lin and Reiter, 1997) specifies the new initial database ($\mathcal{D}_{S_1}$) by quantifying over and replacing the old situation ($S_0$) with a Second-Order predicate variable, $\mathcal{A}$.
+
+Suppose we execute our first action: $\alpha = \mathit{swap}(1, 2)$. We progress the theory to $S_1 = do(\alpha, S_0)$.
+
+The Second-Order specification of the new state is:
+
+$$
+\begin{align*}
+\mathcal{D}_{S_1} \equiv \exists \mathcal{A} \Bigg[ \;& \underbrace{\mathcal{A}(3, 1) \land \mathcal{A}(1, 2) \land \mathcal{A}(2, 3) \land \forall i > 3.\ \exists v.\ \mathcal{A}(v, i)}_{\text{The old state } \mathcal{D}_{S_0} \text{ captured via predicate } \mathcal{A}} \\
+& \land \underbrace{\forall v, i.\ \Big( \mathit{At}(v, i, S_1) \equiv \gamma_{\mathcal{A}}^+(v, i, \alpha) \lor \big( \mathcal{A}(v, i) \land \neg \gamma_{\mathcal{A}}^-(v, i, \alpha) \big) \Big)}_{\text{The SSA mapping the old structural geometry } (\mathcal{A}) \text{ to the new state } (S_1)} \Bigg]
+\end{align*}
+$$
+
+**(Where $\gamma_{\mathcal{A}}^+$ and $\gamma_{\mathcal{A}}^-$ are the positive and negative effects of $\mathit{swap}(1,2)$ evaluated against $\mathcal{A}$).**
+
+#### The Trap of Second-Order Specification
+This formulation mathematically isolates the exact failure point between specification and realization:
+
+1.  **Flawless Specification:** The formula perfectly and correctly specifies the progressed state. The old history ($S_0$) is strictly forgotten (masked behind the existential quantifier $\exists \mathcal{A}$), and the local effects of the swap are logically resolved.
+2.  **Incomputable Realization:** To actually *use* this progressed theory as a standard Knowledge Base, a theorem prover must eliminate the Second-Order quantifier ($\exists \mathcal{A}$) to compile it back into a First-Order Bounded Action Theory. 
+3.  **The Infinite Bottleneck:** In a strictly finite domain, $\exists \mathcal{A}$ can be syntactically eliminated via finite instantiation. However, because our epistemic tail is unbounded ($\forall i > 3.\ \exists v.\ \mathcal{A}(v, i)$), the quantifier ranges over an infinite set of unknown structural mappings. The First-Order compilation fundamentally diverges. 
+
+Standard progression perfectly specifies what the agent needs to forget, but without a categorical mechanism to bound the infinite tail, it provides the agent with no computational means to physically realize the resulting state.
+
+### The Synthesis Game: Why Structural Expansion is Required
+
+From a synthesis and solvability perspective, sorting an unbounded epistemic sequence is inherently a game played between the agent and an infinite environment. 
+
+*   **The Object-Level Failure (Bubble Sort):** If the agent plays strictly at the object level using existing local vocabulary (iterating $\mathit{swap}$), the environment wins. The infinite epistemic tail forces the agent into a non-terminating regression. The problem is fundamentally unsolvable within the standard reference frame.
+*   **The Relativistic Subsumption (Quicksort):** To win, the agent must adopt an overarching perspective—acting as a semantic observer capable of shifting the reference frame. Quicksort subsumes the naive approach by expanding the vocabulary to include a global topological boundary (the `partition` clause). 
+
+By structurally dividing the infinite environment into well-founded local frames, the observer renders the previously unsolvable game finitely winnable. This demands a generalization of progression.
+
+### Aspect 2: Theory Progression and Structural Vocabulary Expansion
+
+To formally execute this strategic shift, classical progression must be generalized beyond simply updating existing fluents. We must progress the *theory itself* by structurally declaring the expanded vocabulary. 
+
+Standard Second-Order projection allows us to mathematically specify the existence of this new topological boundary (the `partition` clause) required to win the game:
+
+$$\begin{align*} \mathcal{D}_{S_1} \equiv \exists \mathit{partition} \Bigg[ \;& \forall i, p.\ \mathit{partition}(p, S_1) \implies \\ & \big( \forall i < p.\ \exists v_1 \le \mathit{pivot} \dots \big) \land \big( \forall i > p.\ \exists v_2 > \mathit{pivot} \dots \big) \Bigg] \end{align*}$$
+
+#### The Trap of Second-Order Vocabulary Expansion
+Just as with epistemic forgetting, this Second-Order specification is mathematically flawless but computationally inert:
+
+1.  **The Specification:** The formula perfectly describes the structural conditions of the `partition` boundary. If the agent had this predicate, it could safely divide and conquer the infinite list.
+2.  **The Realization Failure:** Standard Situation Calculus does not possess the structural machinery to physically *synthesize* this new predicate out of the raw, unbounded continuous space of $S_0$. 
+3.  **The Oracle Problem:** The logic is forced to treat the $\exists \mathit{partition}$ quantifier as an oracle. We can logically state that the winning boundary exists, but standard First-Order deduction cannot dynamically search an infinite continuous space to find the pivot $p$ and compile it into a finite Successor State Axiom.
+
+To cross this computability gap and actually win the synthesis game, we cannot merely deduce the next logical step; we must shift our foundational semantics to topologically *realize* the boundary.
+
+## The Computability Gap in Second-Order Specification
+While Second-Order projection perfectly *specifies* the progressed theory, it provides no computational mechanism to finitely *realize* it.
+
+*   **Specification vs. Compilation:** We can write the Second-Order definition of the progressed Quicksort state, but standard syntactic logic cannot compile this existential formula back into a finite, executable First-Order Bounded Action Theory (BAT).
+
+### Theorem IV: Analytical Complexity of Unprogressed Contexts
+
+We can formalize this computational gap by mapping the complexity of the unprogressed epistemic tail to the Analytical hierarchy, drawing on the descriptive complexity of infinite computational trees (e.g., Welch, 2008).
+
+**Theorem IV:** *Evaluating the Second-Order progression specification over an unbounded epistemic context maps strictly outside the Arithmetical hierarchy, falling into the Analytical hierarchy (specifically $\Sigma_1^1$ and $\Pi_1^1$), rendering it incomputable by standard First-Order deduction.*
+
+**Proof Sketch:** 
+Let our unprogressed initial state contain an infinite epistemic tail: $\forall i > k.\ \exists v.\ \mathit{At}(v, i, S_0)$. In descriptive set theory, an assignment of values to this infinite sequence of indices maps isomorphically to an infinite string of integers, which is an element of Baire space ($\mathbb{N}^\mathbb{N}$). 
+
+1. **The Arithmetical Baseline:** Following Welch's (2008) analysis of finite path trees, evaluating a property over a finite, completely specified prefix of the array forms a finite computational tree. This evaluation requires only First-Order quantification over integers, keeping the complexity strictly within the Arithmetical hierarchy ($\bigcup_n \Sigma_n^0$).
+2. **The Infinite Projection:** To finitely compile the progressed theory and eliminate the Second-Order quantifier, the system must evaluate the formula $\exists \mathcal{A} [\Phi(\mathcal{A})]$, which existentially quantifies over the entire infinite unprogressed tail of the array.
+3. **The Analytical Bound:** Mathematically, quantifying over a relation $\mathcal{A}$ across an unbounded domain is equivalent to quantifying over an infinite path in Baire space. This operation strictly pushes the formula out of the Arithmetical hierarchy and into $\Sigma_1^1$, the first level of the Analytical hierarchy. Furthermore, verifying that any resulting state transition tree is well-founded (i.e., contains no infinite regression branches) is a $\Pi_1^1$-complete problem (Welch, 2008). 
+
+Because standard deductive theorem provers—which underwrite standard progression—are strictly bounded by Turing computability ($\Sigma_1^0$), the evaluation of this Second-Order progression step is formally incomputable by any finite deductive mechanism. $\blacksquare$
+
+### The Mandate for Semantic Realization
+
+Theorem IV establishes a terminal mathematical roadblock for standard logic. Interestingly, the physics and logic literature (e.g., Hogarth, 1994; Welch, 2008) have demonstrated how utilizing theoretical general relativistic structures-such as Malament-Hogarth spacetimes-can conceptually compute it by physically realizing infinite temporal strings.
+
+However, rather than attempting to physically compute this infinite analytical complexity, our framework proposes a structural bypass. We must abandon standard syntactic action theories and shift to the semantics of topological spaces. Only by changing the logical base via semantic realization can we dynamically quotient this infinite hierarchy, collapsing the analytical complexity into a compact, finitely decidable space.
+
+# Category theory & topological semantics 
+
+To bypass the analytical intractability of evaluating infinite execution traces within standard logic (Theorem IV), we must abandon the attempt to calculate finite inductive histories. Instead, we transition from standard syntactic logic to the semantics of topological spaces by harnessing **Category Theory**.
+
+## The dual problems: Algebras & Coalgebras
+
+In category theory, state transitions can be modelled using an *endofunctor* ($F$) over a state space ($S$)—a structural template that shapes the resulting data object, $F(S)$. This reveals a profound duality between constructing histories and observing properties:
+
+* **Algebra (Situation Calculus / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
+  * Our endofunctor shapes the inputs: $F(S) = \mathit{Action} \times S$
+  * The *morphism* evaluates to: ${\color{blue}{(\mathit{Action} \times State_{\mathit{current}}) \to State_{\mathit{next}}}}$
+  * *Concept:* [*Construct* a history from the bottom-up.]{style="color:blue"} This is the rigid geometry that paralyzes standard progression in infinite contexts (Least Fixpoints, $\mu$).
+
+* **Coalgebra (Property Persistence / Observer):** Morphism arrows point *outward*: $\; S \to F(S)$
+  * Our endofunctor shapes the emitted data: $F(S) = \mathit{Observation} \times S$
+  * The morphism evaluates to: ${\color{blue}{State_{\mathit{current}} \to (\mathit{Observation} \times State_{\mathit{next}})}}$
+  * *Concept:* [Take a running state, break off an *observation*, and unfold the remaining state into the future.]{style="color:blue"} This embraces the infinite horizon (Greatest Fixpoints, $\nu$).
+
+To reason about infinite streams when operating in *coalgebras*, we harness two categorical proof mechanisms:
+
+**1. Coinduction (The Dual of Induction)**
+While standard induction proves a finite base case and builds upward, coinduction works top-down. It *proposes* a Greatest Fixpoint (an infinite rule, $\nu Z$) and verifies it locally. 
+
+*If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.*
+
+**2. Stone Duality (Syntax-Semantics)**
+In Category Theory, **Stone Duality** dictates a duality between Syntax (logical formulas) and Semantics (topological state space). 
+
+* [*The Syntactic Transformation:* If our logic formally declares two distinct observational paths to be identical (Bisimulation Equivalence) $\ldots$]{style="color:blue"}
+* [$\ldots$ *The Semantic Result:* Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.]{style="color:blue"}
+
+## Domain theory in Logical Form (DTLF) 
+
+This categorical bridge between logic and topology is formalized by **Domain Theory in Logical Form (DTLF)** (Abramsky, 1991). DTLF maps logical propositions directly to the compact open sets of a Spectral or Scott topological space. This allows us to use coinduction to actively re-shape the topology of the action theory, semantically *folding* the infinite state space into a finite, observable quotient.
+
+### Generalizing Expressivity: The Role of the Observer
+Crucially, this mechanism is not limited to spatial coordinates or specific sorting algorithms. Because Stone Duality applies universally to any continuous coalgebraic stream, an independent **Semantic Observer** can propose *any* definable structural invariant (a Greatest Fixpoint). 
+
+Whether the system must synthesize a `partition` clause, a recursive `merge` function, a concurrent safety boundary, or a topological routing heuristic, the structural mechanism remains mathematically identical: the Observer proposes the invariant, and if local bisimulation holds, the topological space is forced to finitely realize it.
+
+### Example: Coinduction of qsort
+
+We apply this universal categorical machinery to formally realize the `partition` boundary that standard Second-Order projection could only specify but failed to compute. 
+
+**1. The Coalgebraic Stream:** 
+Iterating across the unbounded array yields an infinite stream of localized structural observations, evaluating whether elements are $\le \mathit{pivot}$ or $> \mathit{pivot}$.
+
+**2. The Coinductive Proposal:** 
+The Observer proposes an idealized Greatest Fixpoint where the array is permanently partitioned around a pivot index $p$ with value $v_p$:
+$$\mathit{PartitionInvariant}(p) \equiv \nu Z.\ \big(\forall i < p.\; v_i \le v_p\big) \land \big(\forall j > p.\; v_j > v_p\big) \land Z_{\mathit{next}}$$
+
+**3. The Coinductive Step (Bisimulation):** 
+[How does our *proposed invariant* survive the execution of local swaps within the sub-arrays?]{style="color:blue"}
+
+To satisfy the local coinductive check, the logic evaluates the domain's geometry. It formally recognises that from the perspective of the global `partition` invariant, any sequence of local swaps strictly on the left side of $p$, or strictly on the right side of $p$, is structurally indistinguishable. It applies a coinductive equivalence: the specific historical order of internal swaps is observationally irrelevant (bisimilar).
+
+**4. The Stone Duality Resolution:**
+By syntactically equating these internal swap sequences as bisimilar, **Stone Duality** automatically forces the absolute state space to fold. The infinite, intractably complex execution trace of past actions is topologically quotiented into a compact boundary. 
+
+[This is our new syntactic transformation!]{style="color:blue"} The system has dynamically realized the `partition` clause, converting an unsolvable analytical problem into two bounded, well-founded local reference frames.
+
+
+
+# Synthetic Relativity
+
+To systematically execute the categorical shift from uncomputable Second-Order projection to a finitely realized topology, we introduce **Synthetic Relativity**. This framework provides a universal axiomatic structure for deploying the Semantic Observer.
+
+Logical entailment in this framework operates within a **Total Category**—where a mathematically complete Stone Duality glues syntax (observable properties) and semantics (the continuous topological state space) together. 
+
+Crucially, logical truth is no longer absolute; it is evaluated relative to a specific baseline **Reference Frame**, $S_f$. This relativistic approach adapts the ternary relational structures found in **Routley-Meyer semantics** (typically utilized for substructural and relevance logics, employing accessibility relations of the form $R(x, y, S_f)$). By utilizing a ternary structure, we successfully decouple the axiomatic transformations of the logic from the underlying rigid geometry of the environment, allowing the reference frame itself to dynamically evolve.
+
+## The Synthetic Relativity Axioms
+
+The progression of the system is governed by three interacting, relativized modalities:
+
+*   **$\mathrm{RDo}$ (The Subproblem / Syntactic Induction):** Operates in constructive, non-Boolean logic. It recursively gathers finite, computationally observable properties (compact elements) along a directed logical path from the bottom-up.
+*   **$\mathrm{ODo}$ (The Semantic Observer / Coinduction):** The top-down semantic evaluator and interval invariant. It performs topological closure—evaluating the directed set generated by $\mathrm{RDo}$ and bounding it into a discrete, continuous limit.
+*   **$\mathrm{PDo}$ (Autonomous Progression / Transition):** The dynamic transition functor. It governs the forward evolution of the system by orchestrating the recursive categorical adjunction of local syntax ($\mathrm{RDo}$) and global semantics ($\mathrm{ODo}$) relative to the frame $S_f$.
+
+### Constructive Accumulation
+
+::: {.callout-note icon=false title="Axiom 1: The Axiom of Constructive Accumulation"}
+The dynamic transition functor ($\mathrm{PDo}$) governs autonomous progression via a strict recursive transition law relative to the Reference Frame ($S_f$):
+
+* **Base Case (Initialization):** Let $S_r^{(0)}$ and $S_o^{(0)}$ be the initial states.
+  $$\Sigma_0 = \mathrm{PDo}\big(S_r^{(0)},\; S_o^{(0)},\; S_f\big)$$
+* **Successor Rule (Inductive Step):** For any step $n \ge 0$, the next state strictly nests new inductive syntax ($\mathrm{RDo}$) and semantic coinduction ($\mathrm{ODo}$):
+  $$\Sigma_{n+1} = \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_{n+1}, S_r^{(n)}\big),\; \mathrm{ODo}\big(O_{n+1}, S_o^{(n)}\big),\; S_f \,\Big)$$
+:::
+
+Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence, where the accumulation of inductive evidence ($\mathrm{RDo}$) actively yields the coinductively realized semantic limit ($\mathrm{ODo}$).
+
+## Semantic Realization and Algebraic Compactness
+
+Because the logic builds upon finite, verifiable observables within the Total Category, the autonomous accumulation of evidence mathematically halts when the topology reaches closure. 
+
+::: {.callout-note icon=false title="Theorem I: Semantic Realization"}
+**Semantic Realization** occurs when syntax and semantics formally converge. 
+$$\mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right)$$
+The active inductive trace (the Least Fixpoint $\mu$, built from baseline ignorance $\bot$) strictly fulfills the persistent semantic invariant proposed by the top-down evaluator ($\mathrm{ODo}$).
+:::
+
+::: {.callout-note icon=false title="Theorem II: Algebraic Compactness (Termination)"}
+Because Theorem I formally computes a categorical bilimit, the system achieves **Algebraic Compactness** (Freyd, 1990). At convergence, the initial algebra of the dynamic transition functor structurally coincides with its final coalgebra:
+$$\mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo})$$
+*Proof Sketch (Termination):* Because the infinite inductive trace ($\mu$) and the infinite coinductive invariant ($\nu$) coincide, the topological space admits a finite open cover. The infinite progression is mathematically quotiented into a well-founded structure, guaranteeing that the realization process terminates in finite time.
+:::
+
+## The Synthetic Transformation (Change of Base)
+
+::: {.callout-note icon=false title="Axiom 2: The Axiom of Synthetic Transformation"}
+Upon achieving Algebraic Compactness, the relativistic reference frame mathematically shifts. The categorically preserved invariant (the semantic limit, ${\color{blue}{O}}$) becomes the new, discrete baseline Reference Frame ($S_f$) for the next order of progression.
+$$\mathrm{PDo}(N, {\color{blue}{O}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{O}})$$
+:::
+
+The arrow ($\longrightarrow$) represents a categorical **Change of Base**. The semantic limit has synthesized into a strict syntactic boundary, allowing the agent to definitively forget the infinite past ($N$) that led to it.
+
+### Qsort Example: The Relativistic Shift
+
+We return to our epistemically unbounded array to demonstrate how Synthetic Relativity realizes the `partition` boundary.
+
+**1. Constructive Accumulation (The Local Trace):** 
+The logic recursively accumulates local properties via $\mathrm{RDo}$ (verifying whether individual elements are less than or greater than a pivot, $v_p$), generating the topological equivalent of a nested sequence of actions within the initial epistemic frame $S_f$.
+
+**2. Limit Catching (The Semantic Observer):** 
+Through top-down semantic reflection, the $\mathrm{ODo}$ modality evaluates the coinductive proposal (the `partition` Greatest Fixpoint). Because the local order of elements *within* a sub-array is observationally identical (bisimilar) relative to the pivot, the Observer semantically quotient-folds the trace. 
+
+**3. The Synthetic Transformation (Change of Base):** 
+Theorem I and II are satisfied ($\mu \cong \nu$), and Axiom 2 fires. 
+$$\mathrm{PDo}(N_{\text{trace}}, {\color{blue}{\mathit{Partition}(p)}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathit{Partition}(p)}})$$
+The system has executed a relativistic shift. The `partition` invariant transitions from being a semantic observation into the *literal geometric baseline* of the new universe. The agent drops the infinite trace of previous comparisons ($N_{\text{trace}}$) and begins a new subproblem ($X$), bounded completely by the finite topological constraints of the newly synthesized reference frame.
+
+## Relativistic Domain Theory in Logical Form (R-DTLF)
+
+### DTLF Logical Primitives (No negation or implication)
+
+We ground our system in Abramsky’s **Domain Theory in Logical Form (DTLF)** (1991), utilizing an **intuitionistic** construction of truth. We require a logic that fuses [classical (inductive) logic with intuitionistic (coinductive) logic]{style="color:blue"}. DTLF formulas represent observable properties as they unfold, and because the system can only assert what it can finitely verify over continuous topological space, the baseline syntax is strictly positive (free of hard classical negation or material implication):
+
+$$\phi, \psi  ::=  \top  \mid  \bot  \mid  \phi \land \psi  \mid  \phi \lor \psi  \mid  \langle a \rangle \phi \mid \mu X.\ \Phi(X) \mid \nu X.\ \Phi(X)$$
+
+* **$X, Y$ (Variables):** Placeholders used to define recursive logical properties.
+* **$\top$ (True / Top):** The trivial observation (a valid transition occurred). **$\bot$ (False / Falsum):** The null observation (a paradox occurred)—the baseline ignorance from which new inductive proofs begin.
+* **$\phi \land \psi \ / \ \phi \lor \psi$ (Conjunction / Disjunction):** "I simultaneously observe both $\phi$ and $\psi$" / "I observe either $\phi$ or $\psi$."
+* **$\langle a \rangle \phi$ (The Coalgebraic Transition Modality):** This is the literal "arrow breaking in two." It reads: *"The system makes a visible relativistic jump via action $a$, and the continuing, unobserved future stream will satisfy property $\phi$."* [Because this evaluates future observation rather than past history, it serves as the formal logical engine for bisimulation and state-folding.]{style="color:blue"}
+* **$\mu X.\ \Phi(X)$ / $\nu X.\ \Phi(X)$ (Least & Greatest Fixpoints):** The primitives for recursive behaviour. [$\mu$ drives finite, bottom-up induction from baseline ignorance (reachability), while $\nu$ defines an endlessly repeating, top-down coinductive stream (persistence).]{style="color:blue"}
+
+### Example: Computing the Qsort Partition Invariant in R-DTLF
+
+We can now express our hypothesis for the Quicksort `partition` boundary formally in DTLF. 
+
+[*We co-induce an idealized invariant in DTLF where the array is flawlessly partitioned around a pivot index $p$, and all legal transitions perfectly preserve this structural boundary.*]{style="color:blue"}
+
+**1. Proposing the Idealized Rule:**
+We propose this structure-preserving transition ($\mathit{preserve\_p}$) as our Greatest Fixpoint:
+$$\mathit{PartitionInvariant} \equiv \nu X.\ \langle \mathit{preserve\_p} \rangle X$$
+
+**2. The Reality:**
+However, the physical sorting process generates a stream of localized internal swaps. We observe that valid swaps are either strictly on the left of $p$, or strictly on the right of $p$. The observable bounds are:
+$$\mathit{Observed} \equiv \nu X.\ (\langle \mathit{swap}_{\text{left}} \rangle X \lor \langle \mathit{swap}_{\text{right}} \rangle X)$$
+
+**3. Syntactic Bisimulation Equivalence:**
+Because the topological futures of these internal swaps never breach the pivot boundary, they land in observationally identical states relative to the proposed global invariant. We apply our syntactic equivalence: any local swap exclusively on the left or exclusively on the right is observationally bisimilar to our idealized invariant step ($\langle \mathit{swap}_{\text{left}} \rangle \phi \equiv \langle \mathit{preserve\_p} \rangle \phi$ and $\langle \mathit{swap}_{\text{right}} \rangle \phi \equiv \langle \mathit{preserve\_p} \rangle \phi$). This cleanly collapses the infinite execution stream into our idealized property:
+$$\nu X.\ (\langle \mathit{swap}_{\text{left}} \rangle X \lor \langle \mathit{swap}_{\text{right}} \rangle X) \;\equiv\; \nu X.\ \langle \mathit{preserve\_p} \rangle X$$
+
+### Spatial Completeness & The Static Limitation: R-DTLF
+
+The mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted in Stone Duality).
+
+- **The Guarantee:** It proves a 1-to-1 isomorphism between the algebraic, step-by-step **Syntax** ($\phi \vdash \psi$) and the continuous, geometric **Semantics** ($[\![\phi]\!] \subseteq [\![\psi]\!]$). 
+- **Catching Limits:** Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).
+
+Vanilla DTLF describes a single, *static* universe. 
+
+- To model the *dynamic* aspects of the Relativity Axioms, the Reference Frame itself must dynamically shift, so [we use a relativistic version of DTLF, termed R-DTLF]{style="color:blue"}, which explicitly evaluates these limits relative to the dynamically shifting base $S_f$.
+
+### Compilation into SSAs & Topological Booleanization
+
+R-DTLF does not discard classical logic; it functionally *generates* it at the semantic limits.
+
+::: {.callout-note icon=false title="Theorem III: Topological Booleanization (Compiling SSAs)"}
+Upon semantic realization, the continuous, intuitionistic trace generated by $\mathrm{RDo}$ can be losslessly compiled into a discrete, classical First-Order representation via the **Lawvere-Tierney Double Negation ($\neg\neg$) Topology**. 
+
+**Proof Sketch (Decidability Proof):** Topos theory guarantees that inside every fluid, intuitionistic space exists a rigid **Boolean sub-topos**. [Projecting onto this classical space preserves First-Order quantification while safely restoring the Law of Excluded Middle and hard negation.]{style="color:blue"} Furthermore, because the resulting space is generated from the algebraically compact bilimit (Theorem II), the Boolean sub-topos is strictly bounded. Standard synthesis algorithms operating over this space are therefore evaluated over finite relational structures, guaranteeing decidability.
+:::
+
+- **Compiling Successor State Axioms (SSAs):** This geometric compression is the categorical homologue to Ray Reiter's *Explanation Closure*. The Relativistic approach acts as a logic compiler—mathematically closing the open intuitionistic trace, and synthesizing the discovered invariant directly into First-Order rules.
+- **Hybrid Execution:** Because of this formal theorem, we can securely export newly learned R-DTLF invariants directly into standard classical Bounded Action Theories (BATs). [This enables a powerful hybrid architecture: R-DTLF handles complex, infinite structural learning, and hands the compiled, closed-world rules off to legacy First-Order solvers (like Golog) for rapid execution.]{style="color:blue"}
+
+Following the realization of the `partition` invariant around pivot $p$, the logic compiles the newly synthesized Boolean constraints directly into the classical Precondition ($Poss$) and Successor State Axioms:
+
+$$\begin{align*} Poss(\mathit{swap}(i, j), s) \equiv \;& (j = i + 1) \land \exists v_i, v_j \Big( \mathit{At}(v_i, i, s) \land \mathit{At}(v_j, j, s) \land (v_i > v_j) \Big) \\ & \color{blue}{ \land \ \Big( (i < p \land j < p) \lor (i > p \land j > p) \Big) } \end{align*}$$
+
+$$\begin{align*} \mathit{At}(v, i, do(a, s)) \equiv \;& \Big( [\exists j \ \big((a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i)) \land \mathit{At}(v, j, s)\big)] \\ & \color{blue}{ \land \ \Big( (i < p \land j < p) \lor (i > p \land j > p) \Big) \Big) } \lor \\ & \Big( \mathit{At}(v, i, s) \land \neg [\exists j \ (a = \mathit{swap}(i, j) \lor a = \mathit{swap}(j, i))] \Big) \end{align*}$$
+
+### Synthesizing the Bounds, Not the Policy
+
+It is critical to note that the compiled Successor State Axiom above does not represent a deterministic Quicksort control script (e.g., a recursive Golog program); rather, it mathematically synthesizes the restricted physical laws of a **Divide-and-Conquer environment**. 
+
+**The Hybrid Architecture:** Before realization, a standard synthesis engine faced an unstructured state space, forcing an analytically intractable global search (yielding a naive $O(N^2)$ Bubble Sort, or paralyzing entirely). By compiling the `partition` invariant directly into the SSAs, the Semantic Observer structurally outlaws any action that crosses the pivot. The previously infinite sequence is severed into strictly isolated local frames. 
+
+**Decidability and Efficiency:** By handing this newly bounded BAT to a standard, decidable synthesis engine (e.g., LTLf Bounded Synthesis), the engine is mathematically forced to synthesize policies that solve the left and right sub-arrays independently. Through the recursive application of this Change of Base, the system dynamically enforces the $O(N \log N)$ hierarchical geometry of Quicksort directly into the physics of the domain, safely bypassing the analytical intractability of the unprogressed context.
+
+## Realization
+
+### Realization Has the Markov Property
+
+The ultimate consequence of Topological Booleanization is the structural restoration of the **Markov property**. 
+
+As demonstrated earlier, evaluating an open epistemic domain using standard regression forces the agent to drag an infinitely expanding, non-Markovian history. However, when semantic realization synthesizes the `partition` boundary (compiling it into the SSA above), the boundary completely encapsulates the necessary causal preconditions for the future. The infinite execution trace of prior swaps is cleanly quotiented out. The state of the system is now strictly defined by the finite Boolean parameters of the new local reference frame, making the system fully Markovian and restoring the validity of Explanation Closure.
 
 # Related work
 

@@ -5,7 +5,7 @@ project:
     watch-inputs: true
     navigate: true
   render:
-    - "*.qmd"       # Includes all your quarto documents
+    - "index.qmd"       # Includes all your quarto manuscript
     - "*.md"        # Includes other markdown files if you need them
     - "!BUILD.md"   # Explicitly ignores BUILD.md
 
